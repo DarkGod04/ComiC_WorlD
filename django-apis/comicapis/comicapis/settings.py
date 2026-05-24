@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from datetime import timedelta
 from pathlib import Path
+import dj_database_url
 
 # import django_heroku  # Disabled for local development
 from dotenv import load_dotenv
@@ -88,7 +89,7 @@ CLIENT_SIDE_DOMAIN = str(os.getenv(('CLIENT_SIDE_DOMAIN')))
 STRIPE_WEBHOOK_SECRET = str(os.getenv(('STRIPE_WEBHOOK_SECRET')))
 BACKEND_REVALIDATE_SECRET = str(os.getenv(('BACKEND_REVALIDATE_SECRET')))
 
-ALLOWED_HOSTS = ["stripe.com", "django-comic-api-2.herokuapp.com", "localhost", "127.0.0.1", CLIENT_SIDE_DOMAIN]
+ALLOWED_HOSTS = ["*"]
 
 CORS_ALLOW_CREDENTIALS = True  # to accept cookies via ajax request
 CORS_ORIGIN_ALLOW_ALL = True
@@ -103,8 +104,8 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -185,6 +186,9 @@ DATABASES = {
         'HOST': str(os.getenv(('DATABASE_HOST'))),
     },
 }
+
+if os.getenv('DATABASE_URL'):
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 AUTH_USER_MODEL = 'comics.User'
 
