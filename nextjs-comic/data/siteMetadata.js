@@ -25,7 +25,7 @@ const siteMetadata = {
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
   email: 'nikhilkumarsingh004@gmail.com',
-  github: 'https://github.com',
+  github: 'https://github.com/DarkGod04',
   twitter: 'https://twitter.com/Twitter',
   facebook: 'https://facebook.com',
   youtube: '',

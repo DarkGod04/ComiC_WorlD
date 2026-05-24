@@ -8,17 +8,18 @@ A premium, full-stack comic application featuring a high-performance Next.js fro
 
 ---
 
+<div align="center">
   <p align="center">
-    A Comic Website using Django and Nextjs framework!
+    A Comic Website using Django and Next.js frameworks!
     <br />
-    <a href="https://github.com/onggiabayluon/fullstack-comic-app"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/DarkGod04/ComiC_WorlD"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/onggiabayluon/fullstack-comic-app">View Demo</a>
+    <a href="https://github.com/DarkGod04/ComiC_WorlD">View Demo</a>
     ·
-    <a href="https://github.com/onggiabayluon/fullstack-comic-app/issues">Report Bug</a>
+    <a href="https://github.com/DarkGod04/ComiC_WorlD/issues">Report Bug</a>
     ·
-    <a href="https://github.com/onggiabayluon/fullstack-comic-app/issues">Request Feature</a>
+    <a href="https://github.com/DarkGod04/ComiC_WorlD/issues">Request Feature</a>
   </p>
 </div>
 
@@ -44,7 +45,6 @@ A premium, full-stack comic application featuring a high-performance Next.js fro
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -71,6 +71,7 @@ A full-stack webtoon, manhua, manga website, manhwa website, comics website usin
 
 - Python >=3.9
 - Node.js >=14.x
+- MySQL (configured for backend database storage)
 
 ### Technologies
 
@@ -98,24 +99,38 @@ A full-stack webtoon, manhua, manga website, manhwa website, comics website usin
 1. Clone the repo
 
    ```sh
-   git clone https://github.com/onggiabayluon/fullstack-comic-app.git
+   git clone https://github.com/DarkGod04/ComiC_WorlD.git
    ```
 
-2. Setting your Mysql root name and password in settings.py file for Mysql, assume you already have Mysql install:
-   [./comicsapis/comicsapis/settings.py](https://github.com/onggiabayluon/fullstack-comic-app/blob/ca9d6917eef7f7d5375eabcc13ffd0d3be859c22/django-apis/comicapis/comicapis/settings.py#L99)
+2. Configure your MySQL connection settings (username, password, port) in `settings.py`:
+   [django-apis/comicapis/comicapis/settings.py](file:///c:/Users/Nikhil%20kumar%20singh/Desktop/fullstack-comic-app/django-apis/comicapis/comicapis/settings.py)
 
-3. First time setup, Run init.sh Scripts in Git bash, This Script Will:
+3. Run the first-time initialization scripts to create virtual environment, migrate the database, install package requirements, and setup a Django superuser:
+   ```sh
+   cd django-apis
+   ./scripts/init.sh
+   ```
 
-- Create and activate venv
-- Install requirements.txt packages
-- Migrate database
-- Create super user
-- Run the project
+---
 
-4. cd to the django-apis folder, then run this in git Bash:
-```sh
-./scripts/init.sh
-```
+### Installation Front-end
+
+1. Move to the `nextjs-comic` folder:
+   ```sh
+   cd nextjs-comic
+   ```
+
+2. Set up your local environment file (`.env.local`) with Google OAuth credentials and backend API urls:
+   ```env
+   NEXT_PUBLIC_GOOGLE_CLIENT_ID=your_actual_client_id_here.apps.googleusercontent.com
+   NEXT_PUBLIC_API_URL=http://localhost:8000
+   ```
+
+3. Install dependencies and start the Next.js dev server:
+   ```sh
+   npm install
+   npm run dev
+   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -125,28 +140,22 @@ A full-stack webtoon, manhua, manga website, manhwa website, comics website usin
 
 > For back-end apis:
 
-1. Running project using runs.sh:
+1. Running project using `run.sh`:
 
    ```sh
-    ./run.sh
+   ./run.sh
    ```
 
-2. Manage data using admin page: /admin
+2. Manage data using the Django admin page: `http://localhost:8000/admin`
+   - Default credentials: `admin` / `123456`
 
-   - admin
-   - 123456
-
-#
-![image](https://user-images.githubusercontent.com/70091587/182029328-b1d6696d-c51e-410f-86dd-135b550e5b98.png)
-#
-
-3. View apis list: /swagger
-
-#
-![image](https://user-images.githubusercontent.com/70091587/182029124-48527506-7655-4e2f-b32e-40c67433e5b3.png)
-#
+3. View API list documentation: `http://localhost:8000/swagger`
 
 > For front-end:
+- Open `http://localhost:3000` to view the homepage.
+- Read premium chapters by acquiring user coins on the wallet page and checking out via Stripe.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 
@@ -169,23 +178,28 @@ Don't forget to give the project a star! Thanks again!
 
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- CONTACT -->
+
+## Contact
+
+**Nikhil Kumar Singh** - nikhilkumarsingh004@gmail.com
+
+Project Link: [https://github.com/DarkGod04/ComiC_WorlD](https://github.com/DarkGod04/ComiC_WorlD)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-[contributors-shield]: https://img.shields.io/github/contributors/onggiabayluon/Ecourseapis.svg?style=for-the-badge
-[contributors-url]: https://github.com/onggiabayluon/fullstack-comic-app/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/onggiabayluon/Ecourseapis.svg?style=for-the-badge
-[forks-url]: https://github.com/onggiabayluon/fullstack-comic-app/network/members
-[stars-shield]: https://img.shields.io/github/stars/onggiabayluon/Ecourseapis.svg?style=for-the-badge
-[stars-url]: https://github.com/onggiabayluon/fullstack-comic-app/stargazers
-[issues-shield]: https://img.shields.io/github/issues/onggiabayluon/Ecourseapis.svg?style=for-the-badge
-[issues-url]: https://github.com/onggiabayluon/fullstack-comic-app/issues
-[license-shield]: https://img.shields.io/github/license/onggiabayluon/Ecourseapis.svg?style=for-the-badge
-[license-url]: https://github.com/onggiabayluon/fullstack-comic-app/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/onggiabayluon
-[product-screenshot]: images/screenshot.png
+[contributors-shield]: https://img.shields.io/github/contributors/DarkGod04/ComiC_WorlD.svg?style=for-the-badge
+[contributors-url]: https://github.com/DarkGod04/ComiC_WorlD/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/DarkGod04/ComiC_WorlD.svg?style=for-the-badge
+[forks-url]: https://github.com/DarkGod04/ComiC_WorlD/network/members
+[stars-shield]: https://img.shields.io/github/stars/DarkGod04/ComiC_WorlD.svg?style=for-the-badge
+[stars-url]: https://github.com/DarkGod04/ComiC_WorlD/stargazers
+[issues-shield]: https://img.shields.io/github/issues/DarkGod04/ComiC_WorlD.svg?style=for-the-badge
+[issues-url]: https://github.com/DarkGod04/ComiC_WorlD/issues
+[license-shield]: https://img.shields.io/github/license/DarkGod04/ComiC_WorlD.svg?style=for-the-badge
+[license-url]: https://github.com/DarkGod04/ComiC_WorlD/blob/master/LICENSE
