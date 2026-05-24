@@ -34,10 +34,31 @@ from django.utils.translation import gettext_lazy as _
 #         return '/'.join(filter(None, ("comics", comic_slug, chapter_slug, filename)))
 
 
+class Badge(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    description = models.TextField()
+    icon_name = models.CharField(max_length=50, default="default-badge")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+
 class User(AbstractUser):
     avatar = models.ImageField(null=True, blank=True)
     # coin = models.OneToOneField('Coin', on_delete=models.CASCADE, null=True)
     coins = models.IntegerField(default=0)
+    xp = models.IntegerField(default=0)
+    level = models.IntegerField(default=1)
+    badges = models.ManyToManyField(Badge, related_name="users", blank=True)
+    vip_until = models.DateTimeField(null=True, blank=True)
+
+    @property
+    def is_vip(self):
+        from django.utils import timezone
+        if self.vip_until and self.vip_until > timezone.now():
+            return True
+        return False
 
 
 class MyModelBase(models.Model):
@@ -129,6 +150,9 @@ class Comment(models.Model):
     reply_to = models.ForeignKey("self", null=True, blank=True, related_name='replies', on_delete=models.CASCADE)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
+    is_spoiler = models.BooleanField(default=False)
+    liked_by = models.ManyToManyField(User, related_name='liked_comments', blank=True)
+    disliked_by = models.ManyToManyField(User, related_name='disliked_comments', blank=True)
 
     def __str__(self):
         return self.content
@@ -153,6 +177,7 @@ class Product(models.Model):
     class TYPES(models.TextChoices):
         COIN = 'C', 'COIN'
         CHAPTER = 'CH', 'CHAPTER'
+        VIP = 'V', 'VIP_SUBSCRIPTION'
 
     stripe_product_id = models.CharField(max_length=50, null=True, editable=False)
     stripe_price_id = models.CharField(max_length=50, null=True, editable=False)

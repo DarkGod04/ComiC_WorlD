@@ -46,6 +46,9 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['username'] = user.username
         token['email'] = user.email
         token['avatar'] = str(user.avatar)
+        token['level'] = user.level
+        token['xp'] = user.xp
+        token['is_vip'] = user.is_vip
         return token
 
 
@@ -80,11 +83,12 @@ class RegisterSerializer(serializers.ModelSerializer):
 class UserLessSerializer(ModelSerializer):
     class Meta:
         model = User
-        fields = ["id", "username"]
+        fields = ["id", "username", "level", "xp"]
 
 
 class UserSerializer(ModelSerializer):
     avatar = FileField()
+    is_vip = serializers.BooleanField(read_only=True)
 
     # overriding create
     def create(self, validated_data):
@@ -98,7 +102,7 @@ class UserSerializer(ModelSerializer):
     class Meta:
         model = User
         fields = ["id", "first_name", "last_name", "avatar",
-                  "username", "password", "email", "date_joined", "coins"]
+                  "username", "password", "email", "date_joined", "coins", "xp", "level", "vip_until", "is_vip"]
         extra_kwargs = {
             'password': {'write_only': 'true'}
         }
@@ -306,17 +310,35 @@ class RatingSerializer(ModelSerializer):
 
 class CommentSerializer(ModelSerializer):
     creator = SerializerMethodField()
-    # reply_set = SerializerMethodField()
+    likes_count = SerializerMethodField()
+    dislikes_count = SerializerMethodField()
+    liked_by_me = SerializerMethodField()
+    disliked_by_me = SerializerMethodField()
 
     def get_creator(self, comment):
         return UserLessSerializer(comment.creator, context={"request": self.context.get('request')}).data
-    # def get_reply_set(self, comment):
-    #     reply = comment.__class__.objects.filter(reply_to=comment.id)
-    #     return ReplySerializer(reply, many=True).data
+
+    def get_likes_count(self, comment):
+        return comment.liked_by.count()
+
+    def get_dislikes_count(self, comment):
+        return comment.disliked_by.count()
+
+    def get_liked_by_me(self, comment):
+        user = self.context.get('request').user if self.context.get('request') else None
+        if user and user.is_authenticated:
+            return comment.liked_by.filter(id=user.id).exists()
+        return False
+
+    def get_disliked_by_me(self, comment):
+        user = self.context.get('request').user if self.context.get('request') else None
+        if user and user.is_authenticated:
+            return comment.disliked_by.filter(id=user.id).exists()
+        return False
 
     class Meta:
         model = Comment
-        fields = ['id', 'content', 'created_date', 'updated_date', 'creator', 'reply_to']
+        fields = ['id', 'content', 'created_date', 'updated_date', 'creator', 'reply_to', 'is_spoiler', 'likes_count', 'dislikes_count', 'liked_by_me', 'disliked_by_me']
 
 
 class ReplySerializer(CommentSerializer):

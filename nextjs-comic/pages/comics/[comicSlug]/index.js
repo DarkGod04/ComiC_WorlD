@@ -107,26 +107,29 @@ export default function ComicDetail({ staticComic, comicSlug }) {
     if (process.env.NODE_ENV === 'development') console.log('comic detail re render')
   })
 
-  useEffect(function saveHistory() {
-    if (!comic || !comic.slug) return
-    try {
-      const currentHistoryStr = localStorage.getItem('readingHistory') || '[]'
-      let currentHistory = JSON.parse(currentHistoryStr)
-      // filter out if it already exists
-      currentHistory = currentHistory.filter(c => c.slug !== comic.slug)
-      currentHistory.unshift({
-        slug: comic.slug,
-        title: comic.title,
-        thumbnail: comic.thumbnail || comic.src || src,
-        categories: comic.categories || tags || [],
-      })
-      // keep only last 50
-      currentHistory = currentHistory.slice(0, 50)
-      localStorage.setItem('readingHistory', JSON.stringify(currentHistory))
-    } catch (e) {
-      console.error('Failed to save reading history', e)
-    }
-  }, [comic, src, tags])
+  useEffect(
+    function saveHistory() {
+      if (!comic || !comic.slug) return
+      try {
+        const currentHistoryStr = localStorage.getItem('readingHistory') || '[]'
+        let currentHistory = JSON.parse(currentHistoryStr)
+        // filter out if it already exists
+        currentHistory = currentHistory.filter((c) => c.slug !== comic.slug)
+        currentHistory.unshift({
+          slug: comic.slug,
+          title: comic.title,
+          thumbnail: comic.thumbnail || comic.src || src,
+          categories: comic.categories || tags || [],
+        })
+        // keep only last 50
+        currentHistory = currentHistory.slice(0, 50)
+        localStorage.setItem('readingHistory', JSON.stringify(currentHistory))
+      } catch (e) {
+        console.error('Failed to save reading history', e)
+      }
+    },
+    [comic, src, tags]
+  )
 
   return (
     <>

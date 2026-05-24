@@ -1,4 +1,4 @@
-const siteName = 'MangaWorld'
+const siteName = 'ComicWorld'
 
 const comicDetailMetaData = {
   title: (comicTitle) => `${comicTitle} | ${siteName}`,
@@ -14,8 +14,8 @@ const categoriesDetailMetaData = {
 }
 const siteMetadata = {
   title: siteName,
-  author: 'Tails Azimuth',
-  headerTitle: 'MangaWorld',
+  author: 'Nikhil Kumar Singh',
+  headerTitle: 'ComicWorld',
   description: `Read online comic with high quality images at ${siteName}`,
   language: 'en-us',
   theme: 'system', // system, dark or light
@@ -24,11 +24,11 @@ const siteMetadata = {
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
-  email: 'address@yoursite.com',
+  email: 'nikhilkumarsingh004@gmail.com',
   github: 'https://github.com',
   twitter: 'https://twitter.com/Twitter',
   facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
+  youtube: '',
   linkedin: 'https://www.linkedin.com',
   locale: 'en-US',
   analytics: {

@@ -38,10 +38,10 @@ urlpatterns = [
     path('buy-coin', buy_coin),
     path('create-payment', create_payment),
     path('checkout-webhook', checkout_webhook),
-    # path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
-    # path('auth2-info', views.AuthInfo.as_view()),
+    path('creator/analytics/', views.CreatorAnalyticsView.as_view()),
     # JWT Token
     path('api/token/', views.MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/register/', views.RegisterView.as_view(), name='auth_register'),
+    path('api/auth/google/', views.GoogleLoginView.as_view(), name='auth_google'),
 ]

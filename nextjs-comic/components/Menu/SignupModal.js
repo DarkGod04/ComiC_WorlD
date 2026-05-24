@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { FaLock } from 'react-icons/fa'
 import ErrorList from '../Error/ErrorList'
 
-function SignupModal({ onCloseBtnClick }) {
+function SignupModal({ onCloseBtnClick, onSwitchToLogin }) {
   const { signupUser, error: signupError, loading: isLoading } = useSignup()
 
   const {
@@ -54,7 +54,7 @@ function SignupModal({ onCloseBtnClick }) {
                   type="text"
                   autoComplete="username"
                   required
-                  className="relative block w-full appearance-none rounded-none rounded-t-md border border-white/20 bg-black/20 backdrop-blur-md px-3 py-3 text-white placeholder-gray-400 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 sm:text-sm transition-colors"
+                  className="relative block w-full appearance-none rounded-none rounded-t-md border border-white/20 bg-black/20 px-3 py-3 text-white placeholder-gray-400 backdrop-blur-md transition-colors focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 sm:text-sm"
                   placeholder="Username"
                 />
               </div>
@@ -72,7 +72,7 @@ function SignupModal({ onCloseBtnClick }) {
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="relative block w-full appearance-none rounded-none border border-white/20 border-t-0 bg-black/20 backdrop-blur-md px-3 py-3 text-white placeholder-gray-400 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 sm:text-sm transition-colors"
+                  className="relative block w-full appearance-none rounded-none border border-t-0 border-white/20 bg-black/20 px-3 py-3 text-white placeholder-gray-400 backdrop-blur-md transition-colors focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 sm:text-sm"
                   placeholder="Password"
                 />
               </div>
@@ -98,7 +98,7 @@ function SignupModal({ onCloseBtnClick }) {
                   type="password"
                   autoComplete="current-confirm-password"
                   required
-                  className="relative block w-full appearance-none rounded-none rounded-b-md border border-white/20 border-t-0 bg-black/20 backdrop-blur-md px-3 py-3 text-white placeholder-gray-400 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 sm:text-sm transition-colors"
+                  className="relative block w-full appearance-none rounded-none rounded-b-md border border-t-0 border-white/20 bg-black/20 px-3 py-3 text-white placeholder-gray-400 backdrop-blur-md transition-colors focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 sm:text-sm"
                   placeholder="Confirm Password"
                 />
               </div>
@@ -115,8 +115,8 @@ function SignupModal({ onCloseBtnClick }) {
                 type="submit"
                 className={classNames(
                   isDisabled
-                    ? 'cursor-not-allowed opacity-50 bg-gray-600'
-                    : 'bg-gradient-to-r from-primary-600 to-cyan-500 hover:from-primary-500 hover:to-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:shadow-[0_0_25px_rgba(6,182,212,0.6)] transform hover:-translate-y-[1px]',
+                    ? 'cursor-not-allowed bg-gray-600 opacity-50'
+                    : 'transform bg-gradient-to-r from-primary-600 to-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:-translate-y-[1px] hover:from-primary-500 hover:to-cyan-400 hover:shadow-[0_0_25px_rgba(6,182,212,0.6)]',
                   'group relative flex w-full justify-center rounded-lg border border-transparent py-3 px-4 text-sm font-bold text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-900'
                 )}
               >
@@ -146,7 +146,7 @@ function SignupModal({ onCloseBtnClick }) {
                   <>
                     <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                       <FaLock
-                        className="h-5 w-5 text-white/50 group-hover:text-white/80 transition-colors"
+                        className="h-5 w-5 text-white/50 transition-colors group-hover:text-white/80"
                         aria-hidden="true"
                       />
                     </span>
@@ -156,6 +156,16 @@ function SignupModal({ onCloseBtnClick }) {
               </button>
             </div>
           </form>
+          <div className="mt-4 text-center text-sm text-slate-400">
+            Already have an account?{' '}
+            <button
+              type="button"
+              onClick={onSwitchToLogin}
+              className="font-semibold text-primary-400 transition-colors hover:text-primary-300 hover:underline"
+            >
+              Sign in
+            </button>
+          </div>
         </div>
       </div>
     </>

@@ -6,7 +6,7 @@ const routes = {
   login: '/login',
   logout: '/logout',
   profile: '/user/profile',
-  buycoin: '/buy-coin',
+  buycoin: '/user/wallet',
 }
 
 export default routes

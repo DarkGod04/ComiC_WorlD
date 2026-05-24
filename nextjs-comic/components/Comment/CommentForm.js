@@ -7,12 +7,17 @@ export default function CommentForm({
   onSubmit,
   autoFocus = false,
   initialValue = '',
+  showSpoilerCheckbox = true,
 }) {
   const [message, setMessage] = useState(initialValue)
+  const [isSpoiler, setIsSpoiler] = useState(false)
 
   function handleSubmit(e) {
     e.preventDefault()
-    onSubmit(message).then(() => setMessage(''))
+    onSubmit(message, isSpoiler).then(() => {
+      setMessage('')
+      setIsSpoiler(false)
+    })
   }
 
   return (
@@ -48,22 +53,6 @@ export default function CommentForm({
               </div>
               <div className="flex flex-wrap items-center space-x-1 sm:pl-4"></div>
             </div>
-            {/* <div
-              id="tooltip-fullscreen"
-              role="tooltip"
-              className="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 py-2 px-3 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700"
-              style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 408px);"
-              data-popper-reference-hidden=""
-              data-popper-escaped=""
-              data-popper-placement="bottom"
-            >
-              Show full screen
-              <div
-                className="tooltip-arrow"
-                data-popper-arrow=""
-                style="position: absolute; left: 0px; transform: translate(0px, 0px);"
-              ></div>
-            </div> */}
           </div>
           <div className="rounded-b-lg bg-white py-2 px-4 dark:bg-gray-800">
             <label htmlFor="editor" className="sr-only">
@@ -82,12 +71,33 @@ export default function CommentForm({
           </div>
           {error && <div className="error-msg my-2 ml-2">{error}</div>}
         </div>
-        <button
-          type="submit"
-          className="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900"
-        >
-          {loading ? 'Loading' : 'Publish Comment'}
-        </button>
+
+        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+          <button
+            type="submit"
+            className="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900"
+          >
+            {loading ? 'Loading' : 'Publish Comment'}
+          </button>
+
+          {showSpoilerCheckbox && (
+            <div className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                id="isSpoilerCheckbox"
+                checked={isSpoiler}
+                onChange={(e) => setIsSpoiler(e.target.checked)}
+                className="h-4 w-4 cursor-pointer rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+              />
+              <label
+                htmlFor="isSpoilerCheckbox"
+                className="cursor-pointer text-xs font-medium text-gray-500 dark:text-gray-400"
+              >
+                Hide comment as a spoiler tag
+              </label>
+            </div>
+          )}
+        </div>
       </form>
     </AuthCheck>
   )

@@ -14,10 +14,10 @@ function Navbar() {
   })
 
   return (
-    <header className="sticky top-0 z-50 min-h-[64px] w-full bg-dark-blue-darker/60 backdrop-blur-md border-b border-white/5 shadow-lg">
+    <header className="sticky top-0 z-50 min-h-[64px] w-full border-b border-slate-200 bg-white/60 shadow-lg backdrop-blur-md transition-colors duration-300 dark:border-white/5 dark:bg-dark-blue-darker/60">
       <div
         // style={{ boxShadow: '0 4px 2px -2px gray' }}
-        className="mx-4 lg:mx-8 flex max-h-16 items-center justify-between py-4"
+        className="mx-4 flex max-h-16 items-center justify-between py-4 lg:mx-8"
       >
         {/* Left Logo */}
         <div>
@@ -27,7 +27,7 @@ function Navbar() {
                 <Logo />
               </div>
               {typeof siteMetadata.headerTitle === 'string' ? (
-                <div className="hidden h-6 text-xl font-semibold md:block">
+                <div className="hidden h-6 text-xl font-semibold text-slate-900 transition-colors dark:text-white md:block">
                   {siteMetadata.headerTitle}
                 </div>
               ) : (
@@ -43,7 +43,7 @@ function Navbar() {
               <CustomLink
                 key={link.title}
                 href={link.href}
-                className="text-sm font-medium  hover:text-primary-500  dark:hover:text-primary-400"
+                className="text-sm font-medium text-slate-600 transition-colors hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-400"
               >
                 {link.title}
               </CustomLink>

@@ -6,24 +6,39 @@ import { FaChevronLeft } from 'react-icons/fa'
 
 import { motion } from 'framer-motion'
 
-const MenuItem = ({ onItemClick, onCloseBtnClick, icon, title, comp }) => {
+const MenuItem = ({
+  onItemClick,
+  onCloseBtnClick,
+  icon,
+  title,
+  comp,
+  onSwitchToSignup,
+  onSwitchToLogin,
+}) => {
   const Item = comp
-  if (comp) return <Item onCloseBtnClick={onCloseBtnClick} />
+  if (comp)
+    return (
+      <Item
+        onCloseBtnClick={onCloseBtnClick}
+        onSwitchToSignup={onSwitchToSignup}
+        onSwitchToLogin={onSwitchToLogin}
+      />
+    )
   return (
     <motion.button
-      whileHover={{ scale: 1.02, boxShadow: "0px 0px 10px rgba(6,182,212,0.3)" }}
+      whileHover={{ scale: 1.02, boxShadow: '0px 0px 10px rgba(6,182,212,0.3)' }}
       whileTap={{ scale: 0.98 }}
       onClick={onItemClick}
       aria-label={title}
-      className="group flex w-full items-center rounded-xl p-4 text-sm text-gray-300 bg-white/5 border border-white/10 transition-all hover:bg-primary-500/20 hover:border-primary-500/50 hover:text-white"
+      className="group flex w-full items-center rounded-xl border border-white/10 bg-white/5 p-4 text-sm text-gray-300 transition-all hover:border-primary-500/50 hover:bg-primary-500/20 hover:text-white"
     >
-      <span className="text-gray-400 group-hover:text-primary-400 transition-colors">{icon}</span>
+      <span className="text-gray-400 transition-colors group-hover:text-primary-400">{icon}</span>
       <span className="w-full text-center font-semibold tracking-wide">{title}</span>
     </motion.button>
   )
 }
 
-function Menu({ title, items, onChange, to }) {
+function Menu({ title, items, onChange, to, loginMenu, registerMenu }) {
   let [isOpen, setIsOpen] = useState(false)
 
   const [lastMenuItem, handleMenuItemClick, backToRoot, histories, setHistories, back] =
@@ -31,6 +46,28 @@ function Menu({ title, items, onChange, to }) {
       items: items,
       onChange: onChange,
     })
+
+  const handleSwitchToSignup = () => {
+    if (registerMenu) {
+      const signupModalItem = registerMenu.data.find(
+        (item) => item.type === 'SIGNUP BY USERNAME'
+      )?.children
+      if (signupModalItem) {
+        setHistories([registerMenu, signupModalItem])
+      }
+    }
+  }
+
+  const handleSwitchToLogin = () => {
+    if (loginMenu) {
+      const loginModalItem = loginMenu.data.find(
+        (item) => item.type === 'LOGIN BY USERNAME'
+      )?.children
+      if (loginModalItem) {
+        setHistories([loginMenu, loginModalItem])
+      }
+    }
+  }
 
   const shouldShowHeader = histories?.length > 1
 
@@ -45,9 +82,9 @@ function Menu({ title, items, onChange, to }) {
 
   return (
     <>
-      <button 
-        type="button" 
-        className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-white transition-colors cursor-pointer" 
+      <button
+        type="button"
+        className="block w-full cursor-pointer px-4 py-2 text-left text-sm text-gray-300 transition-colors hover:bg-white/5 hover:text-white"
         onClick={openModal}
       >
         {title}
@@ -78,7 +115,7 @@ function Menu({ title, items, onChange, to }) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-dark-blue-darker/80 backdrop-blur-2xl border border-white/10 p-6 text-left align-middle shadow-[0_0_40px_rgba(0,0,0,0.8)] transition-all">
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl border border-white/10 bg-dark-blue-darker/80 p-6 text-left align-middle shadow-[0_0_40px_rgba(0,0,0,0.8)] backdrop-blur-2xl transition-all">
                   <Dialog.Title
                     as="div"
                     className="mx-auto mb-6 pb-2 text-center text-lg font-medium leading-6 text-white"
@@ -86,7 +123,7 @@ function Menu({ title, items, onChange, to }) {
                     {shouldShowHeader && (
                       <button
                         type="button"
-                        className="absolute left-6 mt-2 cursor-pointer text-gray-400 hover:text-white transition-colors"
+                        className="absolute left-6 mt-2 cursor-pointer text-gray-400 transition-colors hover:text-white"
                         onClick={back}
                         aria-label="back"
                       >
@@ -98,7 +135,7 @@ function Menu({ title, items, onChange, to }) {
                     </h3>
                     <button
                       type="button"
-                      className="absolute right-6 top-5 mt-[0.45rem] cursor-pointer text-gray-400 hover:text-white transition-colors"
+                      className="absolute right-6 top-5 mt-[0.45rem] cursor-pointer text-gray-400 transition-colors hover:text-white"
                       onClick={handleCloseModal}
                       aria-label="Close"
                     >
@@ -126,6 +163,8 @@ function Menu({ title, items, onChange, to }) {
                         title={item.title}
                         comp={item.comp}
                         onCloseBtnClick={handleCloseModal}
+                        onSwitchToSignup={handleSwitchToSignup}
+                        onSwitchToLogin={handleSwitchToLogin}
                       ></MenuItem>
                     ))}
                   </div>

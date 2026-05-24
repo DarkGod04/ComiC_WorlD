@@ -4,10 +4,10 @@ import { makeRequest } from '@/lib/utils/httpRequest'
 const useCommentApi = () => {
   const { makeAuthRequest } = useAxios()
 
-  function createComment({ comicSlug, content, reply_to }) {
+  function createComment({ comicSlug, content, reply_to, is_spoiler }) {
     return makeAuthRequest(`comics/${comicSlug}/add-comment/`, {
       method: 'POST',
-      data: { content, reply_to },
+      data: { content, reply_to, is_spoiler },
     })
   }
 
@@ -24,10 +24,24 @@ const useCommentApi = () => {
     })
   }
 
+  function likeComment({ id: commentId }) {
+    return makeAuthRequest(`comments/${commentId}/like/`, {
+      method: 'POST',
+    })
+  }
+
+  function dislikeComment({ id: commentId }) {
+    return makeAuthRequest(`comments/${commentId}/dislike/`, {
+      method: 'POST',
+    })
+  }
+
   return {
     createComment,
     deleteComment,
     updateComment,
+    likeComment,
+    dislikeComment,
   }
 }
 export const getCommentByComicSlugUrl = (slug) => {

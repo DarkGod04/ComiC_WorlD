@@ -7,40 +7,43 @@ import * as searchServices from '@/services/searchService'
 import { Popover, Transition } from '@headlessui/react'
 import debounce from 'lodash.debounce'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { useRouter } from 'next/router'
 
 function Search() {
   const buttonRef = useRef(null)
+  const router = useRouter()
 
   const [searchValue, setSearchValue] = useState('')
   const [searchResult, setSearchResult] = useState([])
   const [loading, setLoading] = useState(false)
   const [isShowing, setIsShowing] = useState(false)
+  const [focusedIndex, setFocusedIndex] = useState(-1)
 
   const shouldShowResult = searchResult?.length > 0
-
   const inputRef = useRef()
-
   const ONE_SECOND = 1000
 
-  // Hit the database for username match after each debounced change
-  // useCallback is required for debounce to work
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // Hit the database for matches after debounced change
   const checkValueAndSearch = useCallback(
     debounce(async (searchValue) => {
       if (!searchValue.trim()) {
         setIsShowing(false)
+        setFocusedIndex(-1)
         setTimeout(() => setSearchResult([]), ONE_SECOND)
         return
       }
 
       const fetchApi = async () => {
         setLoading(true)
-        const result = await searchServices.search(searchValue)
+        const result = await searchServices.searchSuggest(searchValue)
 
         if (result?.length) {
           setSearchResult(comicsToJSON(result))
+        } else {
+          setSearchResult([])
         }
         setIsShowing(true)
+        setFocusedIndex(-1)
         setLoading(false)
       }
 
@@ -56,6 +59,7 @@ function Search() {
   const handleClear = () => {
     setSearchValue('')
     setSearchResult([])
+    setFocusedIndex(-1)
     inputRef.current.focus()
   }
 
@@ -63,6 +67,31 @@ function Search() {
     const searchValue = e.target.value
     if (!searchValue.startsWith(' ')) {
       setSearchValue(searchValue)
+    }
+  }
+
+  // Handle Keyboard Navigation for Autocomplete List
+  const handleKeyDown = (e) => {
+    if (!shouldShowResult) return
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault()
+      setFocusedIndex((prev) => (prev < searchResult.length - 1 ? prev + 1 : 0))
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault()
+      setFocusedIndex((prev) => (prev > 0 ? prev - 1 : searchResult.length - 1))
+    } else if (e.key === 'Enter') {
+      if (focusedIndex >= 0 && focusedIndex < searchResult.length) {
+        e.preventDefault()
+        const selectedComic = searchResult[focusedIndex]
+        router.push(publicRoutes.comicDetail.getDynamicPath(selectedComic.slug))
+        // Programmatically close the Popover
+        buttonRef.current?.click()
+        handleClear()
+      }
+    } else if (e.key === 'Escape') {
+      buttonRef.current?.click()
+      handleClear()
     }
   }
 
@@ -90,7 +119,7 @@ function Search() {
 
       <Popover.Overlay
         onClick={() => buttonRef.current?.click()}
-        className="fixed inset-0 z-[100] bg-gray-400  opacity-90 dark:bg-slate-800"
+        className="fixed inset-0 z-[100] bg-gray-400 opacity-90 dark:bg-slate-800"
       />
       <Transition
         enter="transition duration-100 ease-out"
@@ -101,7 +130,7 @@ function Search() {
         leaveTo="transform scale-95 opacity-0"
         className="fixed top-0 left-0 z-[101] flex w-full flex-col p-6"
       >
-        <Popover.Panel className="fixed top-0 left-0 z-[101]  contents w-screen flex-col p-6">
+        <Popover.Panel className="fixed top-0 left-0 z-[101] contents w-screen flex-col p-6">
           <form className="group relative mx-auto w-full max-w-2xl ">
             <svg
               width="20"
@@ -117,12 +146,13 @@ function Search() {
               />
             </svg>
             <input
-              autoFocus="true"
+              autoFocus={true}
               ref={inputRef}
               value={searchValue}
               spellCheck={false}
               onChange={handleChange}
-              className="border-theme w-full appearance-none rounded-t-md border-b py-2 pl-10 text-sm leading-6 text-slate-400 placeholder-slate-400 shadow-sm outline-none  dark:bg-slate-700 "
+              onKeyDown={handleKeyDown}
+              className="border-theme w-full appearance-none rounded-t-md border-b py-2 pl-10 text-sm leading-6 text-slate-400 placeholder-slate-400 shadow-sm outline-none dark:bg-slate-700 "
               type="text"
               aria-label="Filter comics"
               placeholder="Filter comics..."
@@ -135,6 +165,7 @@ function Search() {
             {/* Close btn */}
             <Popover.Button
               aria-label="Close Search button"
+              onClick={handleClear}
               className="icon-primary absolute right-[10px] top-[10px]"
             >
               <svg
@@ -151,8 +182,8 @@ function Search() {
                 ></path>
               </svg>
             </Popover.Button>
-            {/* End Close btn */}
           </form>
+
           <section className="bg-slate-white mx-auto max-h-[26rem] w-full max-w-2xl overflow-auto p-5 pt-0 ">
             <Transition
               show={isShowing}
@@ -164,46 +195,54 @@ function Search() {
               leaveTo="opacity-0"
             >
               {!shouldShowResult ? (
-                <h2 className=" py-4 text-center font-medium">No result found</h2>
+                <h2 className=" py-4 text-center font-medium">No results found</h2>
               ) : (
                 <h2 className="border-theme border-b py-4 font-medium">Comics</h2>
               )}
               {shouldShowResult && (
-                <ul role="list" className="border-theme border-b py-5">
-                  {searchResult.map((comic) => (
+                <ul role="list" className="border-theme space-y-1 border-b py-2">
+                  {searchResult.map((comic, index) => (
                     <CustomLink
                       key={comic.slug}
                       href={publicRoutes.comicDetail.getDynamicPath(comic.slug)}
                       aria-label={comic.title}
+                      onClick={() => {
+                        buttonRef.current?.click()
+                        handleClear()
+                      }}
                     >
                       <li
                         key={comic.title}
-                        className="bg-sky-hover mb-2 flex items-center rounded p-3 text-sm font-medium uppercase  "
+                        className={`mb-1 flex items-center rounded-xl border border-transparent p-3 text-sm font-semibold uppercase transition duration-150 ${
+                          index === focusedIndex
+                            ? 'border-indigo-500/30 bg-indigo-600/10 dark:bg-indigo-600/20'
+                            : 'bg-sky-hover hover:bg-indigo-50/50 dark:hover:bg-neutral-800/30'
+                        }`}
                       >
-                        <Image
-                          className="aspect-square h-10 w-10 object-cover"
-                          width={40}
-                          height={40}
-                          src={comic.src}
-                          alt={comic.title}
-                        />
-                        <div className="ml-3 overflow-hidden">
-                          <p className="font-medium">{comic.title}</p>
+                        <div className="h-10 w-10 overflow-hidden rounded-lg border border-gray-200/50 dark:border-gray-800">
+                          <Image
+                            className="aspect-square h-full w-full object-cover"
+                            width={40}
+                            height={40}
+                            src={comic.src}
+                            alt={comic.title}
+                          />
+                        </div>
+                        <div className="ml-3.5 overflow-hidden">
+                          <p className="font-bold text-gray-800 dark:text-gray-100">
+                            {comic.title}
+                          </p>
                           <ul
                             role="list"
-                            className="flex flex-row items-center space-x-3 font-normal"
+                            className="mt-0.5 flex flex-row items-center space-x-2 text-xs font-normal text-gray-400"
                           >
-                            {comic?.chapters?.map((chapter) => (
-                              <CustomLink
-                                key={chapter.id}
-                                href={publicRoutes.chapterDetail.getDynamicPath(
-                                  comic.slug,
-                                  chapter.slug
-                                )}
-                                ria-label={chapter.slug}
+                            {comic.categories?.slice(0, 3).map((category) => (
+                              <li
+                                key={category.id}
+                                className="rounded bg-gray-100 px-1.5 py-0.5 text-[10px] dark:bg-neutral-800"
                               >
-                                <li>C.{chapter.chapter_num}</li>
-                              </CustomLink>
+                                {category.name}
+                              </li>
                             ))}
                           </ul>
                         </div>
@@ -213,19 +252,12 @@ function Search() {
                 </ul>
               )}
             </Transition>
-
-            {/* Recent Search Text */}
-            {/* <h2 className="border-theme border-b py-4 font-medium">Recent</h2>
-            <div className="bg-slate-white mx-auto w-full  max-w-2xl py-4">
-              <span className="text-slate-white text-sm">Goblin SLayer</span>
-            </div>
-            <div className="bg-slate-white mx-auto w-full  max-w-2xl  py-4">
-              <span className="text-slate-white text-sm">Goblin SLayer</span>
-            </div> */}
           </section>
-          {/* Footer */}
-          <section className="bg-slate-white border-theme mx-auto w-full max-w-2xl rounded-b border-t p-4 ">
-            <span className="block text-right text-sm text-slate-400"></span>
+
+          <section className="bg-slate-white border-theme mx-auto w-full max-w-2xl rounded-b border-t p-3 text-center">
+            <span className="text-[10px] font-medium text-gray-400">
+              💡 Use Arrow keys ⬆⬇ to select, Enter to open, Esc to close
+            </span>
           </section>
         </Popover.Panel>
       </Transition>

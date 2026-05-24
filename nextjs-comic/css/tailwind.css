@@ -125,7 +125,7 @@
     @apply hover:bg-indigo-300 hover:text-white dark:hover:bg-indigo-500 dark:hover:text-slate-100;
   }
   .text-muted {
-    @apply text-gray-500 dark:text-gray-600;
+    @apply text-slate-500 dark:text-slate-400;
   }
   .text-title {
     @apply text-center text-xl font-semibold leading-9 tracking-tight sm:text-3xl sm:leading-10 md:leading-14;
@@ -397,4 +397,572 @@ input:-webkit-autofill:focus {
 
 .btn[disabled] {
   --color: hsl(var(--hue), 20%, 74%);
+}
+
+/* ----------------------------------------------------- */
+/* Scoped Reader Themes (Industry Standard) */
+/* ----------------------------------------------------- */
+.reader-theme-dark {
+  --reader-bg: #09090b;
+  --reader-bg-rgb: 9, 9, 11;
+  --reader-text: #e4e4e7;
+  --reader-card: #18181b;
+  --reader-card-rgb: 24, 24, 27;
+  --reader-border: #27272a;
+  --reader-muted: #a1a1aa;
+}
+.reader-theme-light {
+  --reader-bg: #ffffff;
+  --reader-bg-rgb: 255, 255, 255;
+  --reader-text: #0f172a;
+  --reader-card: #f8fafc;
+  --reader-card-rgb: 248, 250, 252;
+  --reader-border: #e2e8f0;
+  --reader-muted: #64748b;
+}
+.reader-theme-sepia {
+  --reader-bg: #fbf0db;
+  --reader-bg-rgb: 251, 240, 219;
+  --reader-text: #433422;
+  --reader-card: #f5e6c4;
+  --reader-card-rgb: 245, 230, 196;
+  --reader-border: #e4d0a9;
+  --reader-muted: #7c6a52;
+}
+
+.reader-theme-dark,
+.reader-theme-light,
+.reader-theme-sepia {
+  background-color: var(--reader-bg) !important;
+  color: var(--reader-text) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Scrollbar styles for the entire page under themes */
+.reader-theme-dark::-webkit-scrollbar {
+  width: 10px;
+}
+.reader-theme-dark::-webkit-scrollbar-track {
+  background: #09090b;
+}
+.reader-theme-dark::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 5px;
+}
+.reader-theme-dark::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+.reader-theme-light::-webkit-scrollbar {
+  width: 10px;
+}
+.reader-theme-light::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+.reader-theme-light::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 5px;
+}
+.reader-theme-light::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+
+.reader-theme-sepia::-webkit-scrollbar {
+  width: 10px;
+}
+.reader-theme-sepia::-webkit-scrollbar-track {
+  background: #fbf0db;
+}
+.reader-theme-sepia::-webkit-scrollbar-thumb {
+  background: #e4d0a9;
+  border-radius: 5px;
+}
+.reader-theme-sepia::-webkit-scrollbar-thumb:hover {
+  background: #d8c399;
+}
+
+/* Style child components */
+.reader-theme-dark header,
+.reader-theme-light header,
+.reader-theme-sepia header {
+  background-color: rgba(var(--reader-bg-rgb), 0.75) !important;
+  border-bottom-color: var(--reader-border) !important;
+}
+
+.reader-theme-dark header a, .reader-theme-light header a, .reader-theme-sepia header a,
+.reader-theme-dark header div, .reader-theme-light header div, .reader-theme-sepia header div,
+.reader-theme-dark header svg, .reader-theme-light header svg, .reader-theme-sepia header svg {
+  color: var(--reader-text) !important;
+}
+
+.reader-theme-dark footer,
+.reader-theme-light footer,
+.reader-theme-sepia footer {
+  background-color: var(--reader-bg) !important;
+  border-top-color: var(--reader-border) !important;
+}
+
+.reader-theme-dark footer *,
+.reader-theme-light footer *,
+.reader-theme-sepia footer * {
+  color: var(--reader-text) !important;
+}
+
+/* Card, Container & Card-background overrides */
+.reader-theme-dark .comic-detail-section-border,
+.reader-theme-dark .comic-detail-section-styles,
+.reader-theme-dark .color-card,
+.reader-theme-dark [class*="bg-dark-gray-lighter"],
+.reader-theme-dark [class*="bg-dark-gray-light"],
+.reader-theme-dark [class*="bg-gray-50"],
+.reader-theme-dark [class*="dark:bg-gray-700"],
+.reader-theme-dark [class*="dark:bg-gray-800"],
+.reader-theme-dark [class*="bg-white"],
+.reader-theme-dark .rounded-b-lg,
+.reader-theme-dark [class*="bg-slate-white"] {
+  background-color: var(--reader-card) !important;
+  border-color: var(--reader-border) !important;
+}
+
+.reader-theme-light .comic-detail-section-border,
+.reader-theme-light .comic-detail-section-styles,
+.reader-theme-light .color-card,
+.reader-theme-light [class*="bg-dark-gray-lighter"],
+.reader-theme-light [class*="bg-dark-gray-light"],
+.reader-theme-light [class*="bg-gray-50"],
+.reader-theme-light [class*="dark:bg-gray-700"],
+.reader-theme-light [class*="dark:bg-gray-800"],
+.reader-theme-light [class*="bg-white"],
+.reader-theme-light .rounded-b-lg,
+.reader-theme-light [class*="bg-slate-white"] {
+  background-color: var(--reader-card) !important;
+  border-color: var(--reader-border) !important;
+}
+
+.reader-theme-sepia .comic-detail-section-border,
+.reader-theme-sepia .comic-detail-section-styles,
+.reader-theme-sepia .color-card,
+.reader-theme-sepia [class*="bg-dark-gray-lighter"],
+.reader-theme-sepia [class*="bg-dark-gray-light"],
+.reader-theme-sepia [class*="bg-gray-50"],
+.reader-theme-sepia [class*="dark:bg-gray-700"],
+.reader-theme-sepia [class*="dark:bg-gray-800"],
+.reader-theme-sepia [class*="bg-white"],
+.reader-theme-sepia .rounded-b-lg,
+.reader-theme-sepia [class*="bg-slate-white"] {
+  background-color: var(--reader-card) !important;
+  border-color: var(--reader-border) !important;
+}
+
+/* Card hover background overrides */
+.reader-theme-dark .color-card-hover:hover {
+  background-color: #27272a !important;
+}
+.reader-theme-light .color-card-hover:hover {
+  background-color: #f1f5f9 !important;
+}
+.reader-theme-sepia .color-card-hover:hover {
+  background-color: #ebdcb9 !important;
+}
+
+/* Global border elements overrides */
+.reader-theme-dark .border,
+.reader-theme-dark .border-b,
+.reader-theme-dark .border-t,
+.reader-theme-dark .border-l-2,
+.reader-theme-dark .divide-y > *,
+.reader-theme-dark .divide-x > * {
+  border-color: var(--reader-border) !important;
+}
+
+.reader-theme-light .border,
+.reader-theme-light .border-b,
+.reader-theme-light .border-t,
+.reader-theme-light .border-l-2,
+.reader-theme-light .divide-y > *,
+.reader-theme-light .divide-x > * {
+  border-color: var(--reader-border) !important;
+}
+
+.reader-theme-sepia .border,
+.reader-theme-sepia .border-b,
+.reader-theme-sepia .border-t,
+.reader-theme-sepia .border-l-2,
+.reader-theme-sepia .divide-y > *,
+.reader-theme-sepia .divide-x > * {
+  border-color: var(--reader-border) !important;
+}
+
+/* Text overrides */
+.reader-theme-dark .text-gray-900,
+.reader-theme-dark .dark\:text-white,
+.reader-theme-dark .text-gray-800,
+.reader-theme-dark .dark\:text-gray-100,
+.reader-theme-dark .text-gray-700,
+.reader-theme-dark .dark\:text-gray-200,
+.reader-theme-dark .text-slate-700,
+.reader-theme-dark .dark\:text-slate-300,
+.reader-theme-dark .text-slate-900,
+.reader-theme-dark .prose-sm,
+.reader-theme-dark h1,
+.reader-theme-dark h2,
+.reader-theme-dark h3,
+.reader-theme-dark h4,
+.reader-theme-dark p,
+.reader-theme-dark span:not(.text-blue-600):not(.text-blue-400):not(.text-indigo-400):not(.text-indigo-600):not(.text-yellow-600):not(.text-yellow-400) {
+  color: var(--reader-text) !important;
+}
+
+.reader-theme-light .text-gray-900,
+.reader-theme-light .dark\:text-white,
+.reader-theme-light .text-gray-800,
+.reader-theme-light .dark\:text-gray-100,
+.reader-theme-light .text-gray-700,
+.reader-theme-light .dark\:text-gray-200,
+.reader-theme-light .text-slate-700,
+.reader-theme-light .dark\:text-slate-300,
+.reader-theme-light .text-slate-900,
+.reader-theme-light .prose-sm,
+.reader-theme-light h1,
+.reader-theme-light h2,
+.reader-theme-light h3,
+.reader-theme-light h4,
+.reader-theme-light p,
+.reader-theme-light span:not(.text-blue-600):not(.text-blue-400):not(.text-indigo-400):not(.text-indigo-600):not(.text-yellow-600):not(.text-yellow-400) {
+  color: var(--reader-text) !important;
+}
+
+.reader-theme-sepia .text-gray-900,
+.reader-theme-sepia .dark\:text-white,
+.reader-theme-sepia .text-gray-800,
+.reader-theme-sepia .dark\:text-gray-100,
+.reader-theme-sepia .text-gray-700,
+.reader-theme-sepia .dark\:text-gray-200,
+.reader-theme-sepia .text-slate-700,
+.reader-theme-sepia .dark\:text-slate-300,
+.reader-theme-sepia .text-slate-900,
+.reader-theme-sepia .prose-sm,
+.reader-theme-sepia h1,
+.reader-theme-sepia h2,
+.reader-theme-sepia h3,
+.reader-theme-sepia h4,
+.reader-theme-sepia p,
+.reader-theme-sepia span:not(.text-blue-600):not(.text-blue-400):not(.text-indigo-400):not(.text-indigo-600):not(.text-yellow-600):not(.text-yellow-400) {
+  color: var(--reader-text) !important;
+}
+
+/* Muted text overrides */
+.reader-theme-dark .text-gray-400,
+.reader-theme-dark .dark\:text-gray-400,
+.reader-theme-dark .text-gray-500,
+.reader-theme-dark .dark\:text-gray-500,
+.reader-theme-dark .text-xs.text-neutral-400,
+.reader-theme-dark p.opacity-60 {
+  color: var(--reader-muted) !important;
+}
+
+.reader-theme-light .text-gray-400,
+.reader-theme-light .dark\:text-gray-400,
+.reader-theme-light .text-gray-500,
+.reader-theme-light .dark\:text-gray-500,
+.reader-theme-light .text-xs.text-neutral-400,
+.reader-theme-light p.opacity-60 {
+  color: var(--reader-muted) !important;
+}
+
+.reader-theme-sepia .text-gray-400,
+.reader-theme-sepia .dark\:text-gray-400,
+.reader-theme-sepia .text-gray-500,
+.reader-theme-sepia .dark\:text-gray-500,
+.reader-theme-sepia .text-xs.text-neutral-400,
+.reader-theme-sepia p.opacity-60 {
+  color: var(--reader-muted) !important;
+}
+
+/* Interactive form inputs, editors, textareas */
+.reader-theme-dark textarea,
+.reader-theme-dark .rounded-lg.border.bg-gray-50,
+.reader-theme-dark .rounded-b-lg.bg-white {
+  background-color: #121214 !important;
+  color: #f4f4f5 !important;
+  border-color: #27272a !important;
+}
+
+.reader-theme-light textarea,
+.reader-theme-light .rounded-lg.border.bg-gray-50,
+.reader-theme-light .rounded-b-lg.bg-white {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #e2e8f0 !important;
+}
+
+.reader-theme-sepia textarea,
+.reader-theme-sepia .rounded-lg.border.bg-gray-50,
+.reader-theme-sepia .rounded-b-lg.bg-white {
+  background-color: #ebdcb9 !important;
+  color: #433422 !important;
+  border-color: #d8c399 !important;
+}
+
+.reader-theme-dark textarea::placeholder,
+.reader-theme-light textarea::placeholder,
+.reader-theme-sepia textarea::placeholder {
+  color: var(--reader-muted) !important;
+}
+
+/* Comment publish button */
+.reader-theme-dark button[type="submit"] {
+  background-color: #4f46e5 !important;
+}
+.reader-theme-dark button[type="submit"]:hover {
+  background-color: #4338ca !important;
+}
+
+.reader-theme-light button[type="submit"] {
+  background-color: #4f46e5 !important;
+}
+.reader-theme-light button[type="submit"]:hover {
+  background-color: #4338ca !important;
+}
+
+.reader-theme-sepia button[type="submit"] {
+  background-color: #7c3aed !important;
+}
+.reader-theme-sepia button[type="submit"]:hover {
+  background-color: #6d28d9 !important;
+}
+
+/* Spoiler element style overrides */
+.reader-theme-light .bg-gray-950 {
+  background-color: #f1f5f9 !important;
+  color: #64748b !important;
+  border-color: #e2e8f0 !important;
+}
+.reader-theme-light .bg-gray-950:hover {
+  background-color: #e2e8f0 !important;
+}
+
+.reader-theme-sepia .bg-gray-950 {
+  background-color: #ebdcb9 !important;
+  color: #7c6a52 !important;
+  border-color: #d8c399 !important;
+}
+.reader-theme-sepia .bg-gray-950:hover {
+  background-color: #decba0 !important;
+}
+
+.reader-theme-dark .bg-gray-950 {
+  background-color: #121214 !important;
+  color: #a1a1aa !important;
+  border-color: #27272a !important;
+}
+.reader-theme-dark .bg-gray-950:hover {
+  background-color: #1c1c1f !important;
+}
+
+/* Collapse nested comments vertical line overrides */
+.reader-theme-dark .collapse-line::before {
+  background-color: var(--reader-border) !important;
+}
+.reader-theme-light .collapse-line::before {
+  background-color: var(--reader-border) !important;
+}
+.reader-theme-sepia .collapse-line::before {
+  background-color: var(--reader-border) !important;
+}
+
+/* Settings Drawers / Panels */
+.reader-theme-dark .reader-settings-panel,
+.reader-theme-dark .reader-shortcuts-panel {
+  background-color: rgba(24, 24, 27, 0.95) !important;
+  border-color: #27272a !important;
+  color: #f4f4f5 !important;
+}
+.reader-theme-light .reader-settings-panel,
+.reader-theme-light .reader-shortcuts-panel {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+.reader-theme-sepia .reader-settings-panel,
+.reader-theme-sepia .reader-shortcuts-panel {
+  background-color: rgba(245, 230, 196, 0.95) !important;
+  border-color: #e4d0a9 !important;
+  color: #433422 !important;
+}
+
+/* Control settings buttons overrides */
+.reader-theme-dark .reader-settings-panel button:not(.bg-indigo-600):not(.bg-green-600),
+.reader-theme-dark .reader-settings-panel a:not(.bg-indigo-600):not(.bg-green-600) {
+  background-color: #27272a !important;
+  color: #d4d4d8 !important;
+  border-color: #3f3f46 !important;
+}
+.reader-theme-dark .reader-settings-panel button:not(.bg-indigo-600):not(.bg-green-600):hover,
+.reader-theme-dark .reader-settings-panel a:not(.bg-indigo-600):not(.bg-green-600):hover {
+  background-color: #3f3f46 !important;
+  color: #ffffff !important;
+}
+
+.reader-theme-light .reader-settings-panel button:not(.bg-indigo-600):not(.bg-green-600),
+.reader-theme-light .reader-settings-panel a:not(.bg-indigo-600):not(.bg-green-600) {
+  background-color: #f1f5f9 !important;
+  color: #475569 !important;
+  border-color: #cbd5e1 !important;
+}
+.reader-theme-light .reader-settings-panel button:not(.bg-indigo-600):not(.bg-green-600):hover,
+.reader-theme-light .reader-settings-panel a:not(.bg-indigo-600):not(.bg-green-600):hover {
+  background-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+.reader-theme-sepia .reader-settings-panel button:not(.bg-indigo-600):not(.bg-green-600),
+.reader-theme-sepia .reader-settings-panel a:not(.bg-indigo-600):not(.bg-green-600) {
+  background-color: #ebdcb9 !important;
+  color: #5c3e21 !important;
+  border-color: #d8c399 !important;
+}
+.reader-theme-sepia .reader-settings-panel button:not(.bg-indigo-600):not(.bg-green-600):hover,
+.reader-theme-sepia .reader-settings-panel a:not(.bg-indigo-600):not(.bg-green-600):hover {
+  background-color: #decba0 !important;
+  color: #433422 !important;
+}
+
+.reader-theme-sepia .reader-settings-panel input[type="range"] {
+  background-color: #d8c399 !important;
+}
+.reader-theme-dark .reader-settings-panel input[type="range"] {
+  background-color: #3f3f46 !important;
+}
+.reader-theme-light .reader-settings-panel input[type="range"] {
+  background-color: #e2e8f0 !important;
+}
+
+/* Floating controls button overrides */
+.reader-theme-dark .fixed.bottom-6.right-6 button:not(.bg-indigo-600) {
+  background-color: rgba(24, 24, 27, 0.9) !important;
+  border-color: #27272a !important;
+  color: #e4e4e7 !important;
+}
+.reader-theme-light .fixed.bottom-6.right-6 button:not(.bg-indigo-600) {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+.reader-theme-sepia .fixed.bottom-6.right-6 button:not(.bg-indigo-600) {
+  background-color: rgba(245, 230, 196, 0.9) !important;
+  border-color: #e4d0a9 !important;
+  color: #433422 !important;
+}
+
+/* User Profile dropdown menu (role="menu") overrides */
+.reader-theme-dark header div[role="menu"],
+.reader-theme-light header div[role="menu"],
+.reader-theme-sepia header div[role="menu"] {
+  background-color: rgba(var(--reader-card-rgb), 0.95) !important;
+  border-color: var(--reader-border) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.reader-theme-dark header div[role="menu"] *,
+.reader-theme-light header div[role="menu"] *,
+.reader-theme-sepia header div[role="menu"] * {
+  color: var(--reader-text) !important;
+  border-color: var(--reader-border) !important;
+}
+
+.reader-theme-light header div[role="menu"] a:hover,
+.reader-theme-sepia header div[role="menu"] a:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Mobile Nav panel overrides */
+.reader-theme-dark .fixed.top-0.left-0.z-\[100\],
+.reader-theme-light .fixed.top-0.left-0.z-\[100\],
+.reader-theme-sepia .fixed.top-0.left-0.z-\[100\] {
+  background-color: var(--reader-bg) !important;
+}
+
+/* Search suggestions box & results overlays */
+.reader-theme-dark header form input,
+.reader-theme-light header form input,
+.reader-theme-sepia header form input {
+  background-color: var(--reader-card) !important;
+  color: var(--reader-text) !important;
+  border-color: var(--reader-border) !important;
+}
+
+.reader-theme-dark header form svg,
+.reader-theme-light header form svg,
+.reader-theme-sepia header form svg {
+  color: var(--reader-muted) !important;
+}
+
+.reader-theme-dark .fixed.inset-0.z-\[100\],
+.reader-theme-light .fixed.inset-0.z-\[100\],
+.reader-theme-sepia .fixed.inset-0.z-\[100\] {
+  background-color: rgba(var(--reader-bg-rgb), 0.8) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+/* Pagination component overrides */
+.reader-theme-dark .pagination-bar button,
+.reader-theme-dark .pagination-bar span,
+.reader-theme-light .pagination-bar button,
+.reader-theme-light .pagination-bar span,
+.reader-theme-sepia .pagination-bar button,
+.reader-theme-sepia .pagination-bar span {
+  background-color: var(--reader-card) !important;
+  border-color: var(--reader-border) !important;
+  color: var(--reader-text) !important;
+}
+
+.reader-theme-dark .pagination-bar button:hover:not(.bg-indigo-50):not(.border-indigo-500),
+.reader-theme-dark .pagination-bar button:disabled {
+  background-color: #27272a !important;
+  opacity: 0.5;
+}
+
+.reader-theme-light .pagination-bar button:hover:not(.bg-indigo-50):not(.border-indigo-500),
+.reader-theme-light .pagination-bar button:disabled {
+  background-color: #f1f5f9 !important;
+  opacity: 0.5;
+}
+
+.reader-theme-sepia .pagination-bar button:hover:not(.bg-indigo-50):not(.border-indigo-500),
+.reader-theme-sepia .pagination-bar button:disabled {
+  background-color: #ebdcb9 !important;
+  opacity: 0.5;
+}
+
+/* Active page number button state in pagination */
+.reader-theme-dark .pagination-bar button.text-indigo-600,
+.reader-theme-dark .pagination-bar button.bg-indigo-55 /* fallback active check */ {
+  background-color: rgba(99, 102, 241, 0.15) !important;
+  border-color: #6366f1 !important;
+  color: #818cf8 !important;
+}
+
+.reader-theme-light .pagination-bar button.text-indigo-600 {
+  background-color: rgba(99, 102, 241, 0.1) !important;
+  border-color: #6366f1 !important;
+  color: #4f46e5 !important;
+}
+
+.reader-theme-sepia .pagination-bar button.text-indigo-600 {
+  background-color: rgba(99, 102, 241, 0.1) !important;
+  border-color: #6366f1 !important;
+  color: #7c3aed !important;
+}
+
+/* Hide conflicting theme switches on reader page */
+.reader-theme-dark button[aria-label="Toggle Dark Mode"],
+.reader-theme-light button[aria-label="Toggle Dark Mode"],
+.reader-theme-sepia button[aria-label="Toggle Dark Mode"] {
+  display: none !important;
+}
+.reader-theme-dark .border-theme:has(button[aria-label="Toggle Dark Mode"]),
+.reader-theme-light .border-theme:has(button[aria-label="Toggle Dark Mode"]),
+.reader-theme-sepia .border-theme:has(button[aria-label="Toggle Dark Mode"]) {
+  display: none !important;
 }

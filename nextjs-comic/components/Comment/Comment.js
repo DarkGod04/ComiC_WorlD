@@ -8,7 +8,8 @@ import { formatTimeAgo } from '@/lib/utils/dateFormatter'
 import useCommentApi from '@/services/commentService'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
+import { FaCaretDown, FaCaretUp, FaThumbsUp, FaThumbsDown } from 'react-icons/fa'
+import toast from 'react-hot-toast'
 import IconBtn from '../Buttons/IconBtn'
 import TextTruncate from '../Utilities/TextTruncate'
 
@@ -17,8 +18,11 @@ function Comment({
   content: message,
   creator: user,
   updated_date: updatedAt,
-  likeCount,
-  likedByMe,
+  is_spoiler: isSpoiler = false,
+  likes_count: likesCountProp = 0,
+  dislikes_count: dislikesCountProp = 0,
+  liked_by_me: likedByMeProp = false,
+  disliked_by_me: dislikedByMeProp = false,
 }) {
   const router = useRouter()
   const {
@@ -29,7 +33,17 @@ function Comment({
   const [isReplying, setIsReplying] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
 
-  const { createComment, deleteComment, updateComment } = useCommentApi()
+  // Like & Dislike states
+  const [likesCount, setLikesCount] = useState(likesCountProp)
+  const [dislikesCount, setDislikesCount] = useState(dislikesCountProp)
+  const [likedByMe, setLikedByMe] = useState(likedByMeProp)
+  const [dislikedByMe, setDislikedByMe] = useState(dislikedByMeProp)
+
+  // Spoiler reveal state
+  const [revealSpoiler, setRevealSpoiler] = useState(false)
+
+  const { createComment, deleteComment, updateComment, likeComment, dislikeComment } =
+    useCommentApi()
   const { getReplies, createLocalComment, deleteLocalComment, updateLocalComment } =
     useCommentContext()
   const childComments = getReplies(id)
@@ -37,11 +51,10 @@ function Comment({
   const createCommentFn = useAsyncFn(createComment)
   const updateCommentFn = useAsyncFn(updateComment)
   const deleteCommentFn = useAsyncFn(deleteComment)
-  // const toggleCommentLikeFn = useAsyncFn(toggleCommentLike)
 
-  const oncommentReply = (message) => {
+  const oncommentReply = (message, isSpoiler) => {
     return createCommentFn
-      .execute({ comicSlug: comicSlug, content: message, reply_to: id })
+      .execute({ comicSlug: comicSlug, content: message, reply_to: id, is_spoiler: isSpoiler })
       .then((reply) => {
         setIsReplying(false)
         createLocalComment(reply)
@@ -64,31 +77,71 @@ function Comment({
     })
   }
 
-  // function onToggleCommentLike() {
-  //   return toggleCommentLikeFn
-  //     .execute({ id, postId: post.id })
-  //     .then(({ addLike }) => toggleLocalCommentLike(id, addLike))
-  // }
+  const handleLike = () => {
+    if (!currentUser) {
+      return toast.error('You need to be logged in to like comments')
+    }
+    likeComment({ id }).then((res) => {
+      if (res) {
+        setLikedByMe(res.liked)
+        setLikesCount(res.likes_count)
+        setDislikesCount(res.dislikes_count)
+        setDislikedByMe(false) // Liked removes dislike
+      }
+    })
+  }
+
+  const handleDislike = () => {
+    if (!currentUser) {
+      return toast.error('You need to be logged in to dislike comments')
+    }
+    dislikeComment({ id }).then((res) => {
+      if (res) {
+        setDislikedByMe(res.disliked)
+        setLikesCount(res.likes_count)
+        setDislikesCount(res.dislikes_count)
+        setLikedByMe(false) // Disliked removes like
+      }
+    })
+  }
+
   return (
-    <div className="comic-detail-section-border flex flex-col bg-dark-gray-lighter p-4 dark:bg-dark-blue">
+    <div className="comic-detail-section-border flex flex-col rounded-xl border border-gray-200/50 bg-dark-gray-lighter p-4 shadow-sm transition duration-300 dark:border-gray-800 dark:bg-dark-blue">
       <div className="flex flex-col space-y-3">
-        {/* User Info */}
-        <div className="flex flex-row">
-          <div className="mr-2 h-9 w-9">
-            <Image
-              className="h-9 w-9 rounded-full"
-              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-              alt="user avatar"
-              width={34}
-              height={34}
-            />
+        {/* User Info & Levels */}
+        <div className="flex flex-row items-center justify-between">
+          <div className="flex flex-row items-center">
+            <div className="mr-3.5 h-9 w-9 overflow-hidden rounded-full border border-gray-200 dark:border-gray-800">
+              <Image
+                className="h-9 w-9"
+                src={
+                  user?.avatar ||
+                  'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+                }
+                alt="user avatar"
+                width={36}
+                height={36}
+                unoptimized
+              />
+            </div>
+            <div className="leading-2 flex flex-col">
+              <span className="flex items-center gap-1.5 text-sm font-semibold text-gray-800 dark:text-gray-100">
+                {user.username}
+                <span className="rounded bg-blue-500/20 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                  LV.{user.level || 1}
+                </span>
+              </span>
+              <span className="text-xs text-gray-400">about {formatTimeAgo(updatedAt)}</span>
+            </div>
           </div>
-          <div className="leading-2 flex flex-col">
-            <span className="text-sm">{user.username}</span>
-            <span className="text-xs text-dark-gray-darker">about {formatTimeAgo(updatedAt)}</span>
-          </div>
+          {isSpoiler && (
+            <span className="rounded-full bg-yellow-500/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-yellow-600 dark:text-yellow-400">
+              Spoiler
+            </span>
+          )}
         </div>
-        {/* User Comment Text */}
+
+        {/* User Comment Text / Spoiler Cover */}
         {isEditing ? (
           <CommentForm
             autoFocus
@@ -96,29 +149,49 @@ function Comment({
             onSubmit={onCommentUpdate}
             loading={updateCommentFn.loading}
             error={updateCommentFn.error}
+            showSpoilerCheckbox={false}
           />
+        ) : isSpoiler && !revealSpoiler ? (
+          <div
+            onClick={() => setRevealSpoiler(true)}
+            className="bg-gray-950 my-3 cursor-pointer select-none rounded-lg border border-yellow-500/30 px-4 py-3 text-center text-xs font-semibold text-gray-400 transition duration-200 hover:bg-black"
+          >
+            ⚠️ Spoiler content. Click to reveal.
+          </div>
         ) : (
-          <TextTruncate text={message} className="prose-sm my-5" />
+          <TextTruncate text={message} className="prose-sm my-3 text-gray-700 dark:text-gray-200" />
         )}
 
         {/* Actions Section */}
-        <div className="flex flex-row space-x-3">
+        <div className="flex flex-row items-center gap-3">
+          {/* Like */}
           <IconBtn
-            disabled={true}
-            // onClick={onToggleCommentLike}
-            // disabled={toggleCommentLikeFn.loading}
-            // Icon={likedByMe ? FaHeart : FaRegHeart}
+            onClick={handleLike}
+            isActive={likedByMe}
             aria-label={likedByMe ? 'Unlike' : 'Like'}
-            Icon={LikeIcon}
+            Icon={FaThumbsUp}
           >
-            <span className="ml-1 text-sm">{likeCount || 0}</span>
+            <span className="ml-1 text-xs">{likesCount}</span>
           </IconBtn>
+
+          {/* Dislike */}
+          <IconBtn
+            onClick={handleDislike}
+            isActive={dislikedByMe}
+            aria-label={dislikedByMe ? 'Remove Dislike' : 'Dislike'}
+            Icon={FaThumbsDown}
+          >
+            <span className="ml-1 text-xs">{dislikesCount}</span>
+          </IconBtn>
+
+          {/* Reply */}
           <IconBtn
             onClick={() => setIsReplying((prev) => !prev)}
             isActive={isReplying}
             Icon={ReplyIcon}
             aria-label={isReplying ? 'Cancel Reply' : 'Reply'}
-          ></IconBtn>
+          />
+
           {user.id === currentUser?.id && (
             <>
               <IconBtn
@@ -126,14 +199,14 @@ function Comment({
                 isActive={isEditing}
                 aria-label={isEditing ? 'Cancel Edit' : 'Edit'}
                 Icon={EditIcon}
-              ></IconBtn>
+              />
               <IconBtn
                 disabled={deleteCommentFn.loading}
                 onClick={onCommentDelete}
                 aria-label="Delete"
                 color="danger"
                 Icon={DeleteIcon}
-              ></IconBtn>
+              />
             </>
           )}
         </div>
@@ -151,57 +224,32 @@ function Comment({
 
         {/* Show/Hide Replies Button */}
         {childComments?.length > 0 && (
-          <>
+          <div className="pt-1">
             <IconBtn
               aria-label={areChildrenHidden ? 'Show Replies' : 'Hide Replies'}
               Icon={areChildrenHidden ? FaCaretDown : FaCaretUp}
               onClick={() => setAreChildrenHidden(!areChildrenHidden)}
             >
-              <span className={`text-base font-bold uppercase tracking-wide`}>
-                {childComments.length} Replies
+              <span className="ml-1 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                {childComments.length} {childComments.length === 1 ? 'Reply' : 'Replies'}
               </span>
             </IconBtn>
-          </>
+          </div>
         )}
 
         {/* Child comments */}
         {childComments?.length > 0 && (
-          <>
-            <div className={`nested-comments-stack ${areChildrenHidden ? 'hide' : ''}`}>
-              {/* <button
-                className="collapse-line"
-                aria-label="Hide Replies"
-                onClick={() => setAreChildrenHidden(true)}
-              /> */}
-              <div className="nested-comments">
-                <CommentList comments={childComments} />
-              </div>
+          <div className={`nested-comments-stack ${areChildrenHidden ? 'hide' : ''}`}>
+            <div className="nested-comments mt-2 space-y-3 border-l-2 border-gray-200 pl-4 dark:border-gray-800">
+              <CommentList comments={childComments} />
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>
   )
 }
 
-function LikeIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="h-5 w-5"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.423-.23H5.904M14.25 9h2.25M5.904 18.75c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 01-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 10.203 4.167 9.75 5 9.75h1.053c.472 0 .745.556.5.96a8.958 8.958 0 00-1.302 4.665c0 1.194.232 2.333.654 3.375z"
-      />
-    </svg>
-  )
-}
 function ReplyIcon() {
   return (
     <svg
@@ -210,7 +258,7 @@ function ReplyIcon() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="h-5 w-5"
+      className="h-4 w-4"
     >
       <path
         strokeLinecap="round"
@@ -220,6 +268,7 @@ function ReplyIcon() {
     </svg>
   )
 }
+
 function EditIcon() {
   return (
     <svg
@@ -228,7 +277,7 @@ function EditIcon() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="h-5 w-5"
+      className="h-4 w-4"
     >
       <path
         strokeLinecap="round"
@@ -238,6 +287,7 @@ function EditIcon() {
     </svg>
   )
 }
+
 function DeleteIcon() {
   return (
     <svg
@@ -246,7 +296,7 @@ function DeleteIcon() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="h-5 w-5"
+      className="h-4 w-4"
     >
       <path
         strokeLinecap="round"

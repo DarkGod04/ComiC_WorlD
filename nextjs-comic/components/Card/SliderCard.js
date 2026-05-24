@@ -28,10 +28,10 @@ function SliderCard({ thumbnail: src, slug, title, description, categories: tags
             layout="fill"
             priority
           />
-          <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/75 pointer-events-none"></div>
+          <div className="pointer-events-none absolute inset-0 h-full w-full bg-gradient-to-br from-black/75"></div>
 
-          <div className="relative flex h-96 w-full flex-col items-end justify-between p-6 align-bottom sm:p-8 pointer-events-none">
-            <div className="flex h-full w-full flex-col justify-end xl:flex-row xl:items-end xl:justify-between pointer-events-auto">
+          <div className="pointer-events-none relative flex h-96 w-full flex-col items-end justify-between p-6 align-bottom sm:p-8">
+            <div className="pointer-events-auto flex h-full w-full flex-col justify-end xl:flex-row xl:items-end xl:justify-between">
               <ul className="xl:hidden">
                 <TagList tags={tags} limit={2} />
               </ul>
@@ -51,7 +51,7 @@ function SliderCard({ thumbnail: src, slug, title, description, categories: tags
               </p>
               <button
                 type="button"
-                className="hidden rounded-full bg-white p-2 text-sm font-medium capitalize text-primary-600 xl:block relative z-50 cursor-pointer hover:bg-gray-100"
+                className="relative z-50 hidden cursor-pointer rounded-full bg-white p-2 text-sm font-medium capitalize text-primary-600 hover:bg-gray-100 xl:block"
                 onMouseDown={stopPropagation}
                 onTouchStart={stopPropagation}
                 onClick={handleNavigate}
@@ -63,7 +63,7 @@ function SliderCard({ thumbnail: src, slug, title, description, categories: tags
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="h-6 w-6 pointer-events-none"
+                  className="pointer-events-none h-6 w-6"
                   aria-label="Arrow right Icon"
                 >
                   <path

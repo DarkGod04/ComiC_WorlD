@@ -28,10 +28,11 @@ function CommentSection({ className, comicSlug }) {
   const { createComment } = useCommentApi()
   const { loading: isCommentCreating, error, execute: createCommentFn } = useAsyncFn(createComment)
 
-  function onCommentCreate(message) {
+  function onCommentCreate(message, isSpoiler) {
     return createCommentFn({
       comicSlug: comicSlug,
       content: message,
+      is_spoiler: isSpoiler,
     }).then(createLocalComment)
   }
 

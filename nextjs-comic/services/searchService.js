@@ -8,7 +8,20 @@ export const search = async (q, type = 'less') => {
         type,
       },
     })
-    return res.results //the api return the results (array)
+    return res.results
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const searchSuggest = async (q) => {
+  try {
+    const res = await httpRequest.get('comics/search-suggest', {
+      params: {
+        q,
+      },
+    })
+    return res
   } catch (error) {
     console.log(error)
   }

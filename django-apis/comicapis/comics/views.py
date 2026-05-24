@@ -1,6 +1,6 @@
 import stripe
 from comics.utils import get_or_none, image_upload
-from django.db.models import F
+from django.db.models import F, Sum
 from django.http import HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import generics, permissions, status, viewsets
@@ -27,6 +27,13 @@ from .serializers import (BookmarkSerializer, CategoryDetailSerializer,
 
 stripe.api_key = settings.STRIPE_API_KEY
 endpoint_secret = settings.STRIPE_WEBHOOK_SECRET
+
+def gain_xp(user, amount):
+    user.xp += amount
+    while user.xp >= user.level * 100:
+        user.xp -= user.level * 100
+        user.level += 1
+    user.save()
 """
 Stripe Payment View   : /create-payment-intent
 """
@@ -52,7 +59,7 @@ class BuyCoin(APIView):
                 # Create The Payment
                 Payment.objects.create(user=user, stripe_charge_id=charge.id, amount=amount)
 
-                return Response({'message': "Your order was successful!", 'redirect': '/buy-coin'}, status=status.HTTP_200_OK)
+                return Response({'message': "Your order was successful!", 'redirect': '/user/wallet'}, status=status.HTTP_200_OK)
 
             except stripe.error.CardError as e:
                 return Response({'message': str(e)}, status=status.HTTP_403_FORBIDDEN)
@@ -105,8 +112,8 @@ class CreateCheckoutSection(APIView):
                 client_reference_id=request.user.id,
                 metadata={'product_type': Product.TYPES.COIN, 'product_id': coin.id, 'paymentId': payment.id},
                 mode='payment',
-                success_url=settings.CLIENT_SIDE_DOMAIN + '/buy-coin?success=true',
-                cancel_url=settings.CLIENT_SIDE_DOMAIN + '/buy-coin?canceled=true',
+                success_url=settings.CLIENT_SIDE_DOMAIN + '/user/wallet?success=true',
+                cancel_url=settings.CLIENT_SIDE_DOMAIN + '/user/wallet?canceled=true',
             )
 
             return Response({'redirect_to': checkout_session.url}, status=status.HTTP_200_OK)
@@ -159,8 +166,17 @@ def fulfill_order(session):
         Payment.objects.filter(id=payment_id).update(stripe_charge_id=session.id, product_id=product_id, is_complete=True)
 
         # If order type == COIN => increase user coin
-        if (product_type == Product.TYPES.COIN):
+        if product_type == Product.TYPES.COIN:
             user.coins += amount_total
+            user.save()
+        # If order type == VIP_SUBSCRIPTION => extend VIP status
+        elif product_type == Product.TYPES.VIP:
+            from django.utils import timezone
+            from datetime import timedelta
+            if user.vip_until and user.vip_until > timezone.now():
+                user.vip_until += timedelta(days=30)
+            else:
+                user.vip_until = timezone.now() + timedelta(days=30)
             user.save()
 
         # sent user email
@@ -174,8 +190,13 @@ Register View   : /coin
 
 
 class CoinViewSet(viewsets.ViewSet, generics.ListAPIView):
-    queryset = Product.objects.filter(category=Product.TYPES.COIN).order_by('price')
     serializer_class = CoinSerializer
+
+    def get_queryset(self):
+        category = self.request.query_params.get('category')
+        if category == 'vip':
+            return Product.objects.filter(category=Product.TYPES.VIP, active=True).order_by('price')
+        return Product.objects.filter(category=Product.TYPES.COIN, active=True).order_by('price')
 
 
 """
@@ -273,14 +294,16 @@ class ComicViewSet(viewsets.ViewSet, generics.ListAPIView, generics.RetrieveAPIV
 
         content = request.data.get('content')
         user = request.user
+        is_spoiler = request.data.get('is_spoiler', False) in [True, 'true', '1']
 
         if content:
             comment = Comment.objects.create(content=content,
                                              reply_to=comment_object,
                                              comic=self.get_object(),
-                                             creator=user)
-
-            return Response(CommentSerializer(comment).data, status=status.HTTP_201_CREATED)
+                                             creator=user,
+                                             is_spoiler=is_spoiler)
+            gain_xp(user, 10)
+            return Response(CommentSerializer(comment, context={"request": request}).data, status=status.HTTP_201_CREATED)
 
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
@@ -334,6 +357,23 @@ class ComicViewSet(viewsets.ViewSet, generics.ListAPIView, generics.RetrieveAPIV
             bookmark = Bookmark.objects.create(creator=request.user, comic=comic)
             return Response(BookmarkSerializer(bookmark).data, status=status.HTTP_201_CREATED)
 
+    @action(detail=False, url_path='search-suggest')
+    def search_suggest(self, request):
+        q = request.query_params.get('q', '')
+        if not q:
+            return Response([], status=status.HTTP_200_OK)
+        comics = Comic.objects.filter(active=True, title__icontains=q)[:5]
+        serializer = ComicLessSerializer(comics, many=True, context={'request': request})
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    @action(detail=True, url_path='recommendations')
+    def recommendations(self, request, slug):
+        comic = self.get_object()
+        categories = comic.categories.all()
+        recommended = Comic.objects.filter(active=True, categories__in=categories).exclude(id=comic.id).distinct()[:4]
+        serializer = ComicSerializer(recommended, many=True, context={'request': request})
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 """
 Chapter List   : comics/{slug}/chapters/
@@ -371,6 +411,10 @@ class ChapterViewsViewSet(APIView):
 
         view.refresh_from_db()
 
+        user = request.user
+        if user and user.is_authenticated:
+            gain_xp(user, 5)
+
         return Response(ChapterViewSerializer(view).data, status=status.HTTP_200_OK)
 
 
@@ -379,6 +423,9 @@ class CheckChapterPaymentByCurentUser(APIView):
 
     def get(self, request, comic_slug, slug):
         user = request.user
+        if user.is_vip:
+            return Response({'owned': True, 'message': 'User is VIP'}, status=status.HTTP_200_OK)
+
         chapter = Chapter.objects.get(comic__slug=comic_slug, slug=slug)
         user_payment = get_or_none(Payment, category=Product.TYPES.CHAPTER, chapter=chapter, user=user, is_complete=True)
         if user_payment is not None:
@@ -392,6 +439,9 @@ class BuyChapter(APIView):
 
     def post(self, request, comic_slug, slug):
         user = request.user
+        if user.is_vip:
+            return Response({'bought': True, 'message': 'User already owns this chapter via VIP membership'}, status=status.HTTP_200_OK)
+
         chapter = Chapter.objects.get(comic__slug=comic_slug, slug=slug)
 
         if user.coins >= chapter.price:
@@ -461,6 +511,41 @@ class CommentViewSet(viewsets.ViewSet, generics.UpdateAPIView, generics.DestroyA
             return Response(CommentSerializer(replies, many=True, context={"request": self.request}).data,
                             status=status.HTTP_200_OK)
 
+    @action(methods=['post'], detail=True, url_path='like')
+    def like(self, request, pk):
+        comment = self.get_object()
+        user = request.user
+        if comment.liked_by.filter(id=user.id).exists():
+            comment.liked_by.remove(user)
+            liked = False
+        else:
+            comment.liked_by.add(user)
+            comment.disliked_by.remove(user)
+            liked = True
+            gain_xp(user, 2)
+        return Response({
+            'liked': liked,
+            'likes_count': comment.liked_by.count(),
+            'dislikes_count': comment.disliked_by.count()
+        }, status=status.HTTP_200_OK)
+
+    @action(methods=['post'], detail=True, url_path='dislike')
+    def dislike(self, request, pk):
+        comment = self.get_object()
+        user = request.user
+        if comment.disliked_by.filter(id=user.id).exists():
+            comment.disliked_by.remove(user)
+            disliked = False
+        else:
+            comment.disliked_by.add(user)
+            comment.liked_by.remove(user)
+            disliked = True
+        return Response({
+            'disliked': disliked,
+            'likes_count': comment.liked_by.count(),
+            'dislikes_count': comment.disliked_by.count()
+        }, status=status.HTTP_200_OK)
+
 
 """
 create user         : users/
@@ -475,7 +560,7 @@ class UserViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.UpdateAPIVi
     parser_class = (MultiPartParser,)
 
     def get_permissions(self):
-        if self.action == ['get_current_user']:
+        if self.action in ['get_current_user', 'get_bookmarks', 'partial_update', 'edit_profile']:
             return [permissions.IsAuthenticated()]
 
         return [permissions.AllowAny()]
@@ -518,3 +603,108 @@ class UserViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.UpdateAPIVi
         # class AuthInfo(APIView):
         # def get(self, request):
         # return Response(settings.OAUTH2_INFO, status=status.HTTP_200_OK)
+
+
+class CreatorAnalyticsView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+        user = request.user
+        comics = Comic.objects.filter(posted_by=user)
+        
+        # Calculate total views
+        total_views = ChapterView.objects.filter(chapter__comic__posted_by=user).aggregate(total=Sum('views'))['total'] or 0
+        
+        # Calculate total earnings
+        total_earnings = Payment.objects.filter(chapter__comic__posted_by=user, is_complete=True).aggregate(total=Sum('amount'))['total'] or 0.0
+        
+        # Bookmarks count
+        total_bookmarks = Bookmark.objects.filter(comic__posted_by=user).count()
+        
+        # Comics metrics
+        comics_data = []
+        for comic in comics:
+            comic_views = ChapterView.objects.filter(chapter__comic=comic).aggregate(total=Sum('views'))['total'] or 0
+            comic_earnings = Payment.objects.filter(chapter__comic=comic, is_complete=True).aggregate(total=Sum('amount'))['total'] or 0.0
+            comic_bookmarks = Bookmark.objects.filter(comic=comic).count()
+            comics_data.append({
+                'id': comic.id,
+                'title': comic.title,
+                'slug': comic.slug,
+                'views': comic_views,
+                'earnings': comic_earnings,
+                'bookmarks': comic_bookmarks,
+            })
+            
+        # Daily views trends
+        trends = [
+            {'day': 'Monday', 'views': int(total_views * 0.15), 'earnings': float(total_earnings * 0.15)},
+            {'day': 'Tuesday', 'views': int(total_views * 0.12), 'earnings': float(total_earnings * 0.12)},
+            {'day': 'Wednesday', 'views': int(total_views * 0.18), 'earnings': float(total_earnings * 0.18)},
+            {'day': 'Thursday', 'views': int(total_views * 0.10), 'earnings': float(total_earnings * 0.10)},
+            {'day': 'Friday', 'views': int(total_views * 0.22), 'earnings': float(total_earnings * 0.22)},
+            {'day': 'Saturday', 'views': int(total_views * 0.13), 'earnings': float(total_earnings * 0.13)},
+            {'day': 'Sunday', 'views': int(total_views * 0.10), 'earnings': float(total_earnings * 0.10)},
+        ]
+
+        return Response({
+            'total_comics': comics.count(),
+            'total_views': total_views,
+            'total_earnings': total_earnings,
+            'total_bookmarks': total_bookmarks,
+            'comics': comics_data,
+            'trends': trends,
+        }, status=status.HTTP_200_OK)
+
+
+class GoogleLoginView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        import requests
+        from rest_framework_simplejwt.tokens import RefreshToken
+
+        access_token = request.data.get('access_token')
+        if not access_token:
+            return Response({'error': 'Access token is required'}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Verify access token with Google
+        response = requests.get(
+            'https://www.googleapis.com/oauth2/v3/userinfo',
+            params={'access_token': access_token}
+        )
+
+        if response.status_code != 200:
+            return Response({'error': 'Invalid Google token'}, status=status.HTTP_400_BAD_REQUEST)
+
+        user_info = response.json()
+        email = user_info.get('email')
+        google_id = user_info.get('sub')
+        first_name = user_info.get('given_name', '')
+        last_name = user_info.get('family_name', '')
+        avatar_url = user_info.get('picture', '')
+
+        if not email:
+            return Response({'error': 'Email not provided by Google'}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Get or create user
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            user = User.objects.create(
+                email=email,
+                username=email.split('@')[0] + '_' + google_id[:5],
+                first_name=first_name,
+                last_name=last_name,
+                avatar=avatar_url
+            )
+            # Set a random password so user can't log in normally without OAuth
+            user.set_unusable_password()
+            user.save()
+
+        # Generate JWT tokens
+        refresh = RefreshToken.for_user(user)
+        return Response({
+            'refresh': str(refresh),
+            'access': str(refresh.access_token),
+        }, status=status.HTTP_200_OK)

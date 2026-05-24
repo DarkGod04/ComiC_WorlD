@@ -2,6 +2,7 @@ import { DEFAULT_MENU_ITEMS, USER_ITEMS } from '@/data/authenticationMenu'
 import { useAuthState } from '@/hooks/useAuthState'
 import { useLogout } from '@/hooks/useLogout'
 import { useEffect, useRef, useState } from 'react'
+import toast from 'react-hot-toast'
 import { FaCoins } from 'react-icons/fa'
 import { useClickAway } from 'react-use'
 import Spinner from '../Skeleton/Spinner'
@@ -29,6 +30,22 @@ export default function UserProfile() {
     switch (menuItem.type) {
       case 'LOGIN BY USERNAME':
         return
+      case 'LOGIN BY GOOGLE':
+      case 'SIGNUP BY GOOGLE': {
+        const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID
+        if (!clientId || clientId.includes('dummy')) {
+          toast.error(
+            'Google OAuth Client ID is not configured! Please set NEXT_PUBLIC_GOOGLE_CLIENT_ID in your nextjs-comic/.env.local file.'
+          )
+          return
+        }
+        const redirectUri = `${window.location.origin}/auth/google/callback`
+        const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${encodeURIComponent(
+          redirectUri
+        )}&response_type=token&scope=email%20profile`
+        window.location.href = url
+        return
+      }
       case 'LOGOUT':
         return logoutUser().then(setOpenDropdown(false))
       case 'LANGUAGE':
@@ -82,7 +99,7 @@ export default function UserProfile() {
         ref={menuRef}
         className={classNames(
           openDropdown ? '' : 'hidden',
-          'absolute right-0 z-[100] mt-2 w-48 origin-top-right rounded-xl bg-dark-blue-darker/80 backdrop-blur-md border border-white/10 py-1 shadow-[0_0_15px_rgba(0,0,0,0.5)] focus:outline-none'
+          'absolute right-0 z-[100] mt-2 w-48 origin-top-right rounded-xl border border-white/10 bg-dark-blue-darker/80 py-1 shadow-[0_0_15px_rgba(0,0,0,0.5)] backdrop-blur-md focus:outline-none'
         )}
         role="menu"
         aria-orientation="vertical"
@@ -90,7 +107,7 @@ export default function UserProfile() {
         tabIndex="-1"
       >
         <AuthCheck>
-          <div className="flex flex-col border-b border-white/10 pb-1 mb-1">
+          <div className="mb-1 flex flex-col border-b border-white/10 pb-1">
             <a className="flex flex-row items-center space-x-2 px-4 py-2 text-sm text-gray-300">
               <span>
                 <FaCoins className="fill-yellow-400" />
@@ -111,12 +128,16 @@ export default function UserProfile() {
           }
           if (item.type == 'modal') {
             const Comp = item.comp
+            const loginMenu = DEFAULT_MENU_ITEMS.find((i) => i.title === 'Login')?.children
+            const registerMenu = DEFAULT_MENU_ITEMS.find((i) => i.title === 'Register')?.children
             return (
               <Comp
                 key={item.title}
                 title={item.title}
                 items={item.children}
                 onChange={handleMenuChange}
+                loginMenu={loginMenu}
+                registerMenu={registerMenu}
               ></Comp>
             )
           }
@@ -129,7 +150,7 @@ export default function UserProfile() {
               <CustomLink
                 key={item.title}
                 href={item.to}
-                className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-white transition-colors cursor-pointer"
+                className="block cursor-pointer px-4 py-2 text-sm text-gray-300 transition-colors hover:bg-white/5 hover:text-white"
                 onClick={() => handleMenuChange(item)}
               >
                 {item.title}
