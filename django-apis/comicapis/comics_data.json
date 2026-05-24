@@ -1,0 +1,2527 @@
+[
+{
+  "model": "comics.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$ZNfBZHShkil5LWuKjKwmqk$j2kKBPzh/BBAPOziAV4oqzifronvJ8cJu9RqUy6PMe8=",
+    "last_login": "2026-05-01T07:47:31.282Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-08-15T10:13:48Z",
+    "avatar": "",
+    "coins": 0,
+    "xp": 0,
+    "level": 1,
+    "vip_until": null,
+    "groups": [],
+    "user_permissions": [],
+    "badges": []
+  }
+},
+{
+  "model": "comics.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$F9LnCcum7OAp8lgnWK6ABM$zt6h+cvSaXLH4IoObtSACHPvhm3I4JXyjwOy3GeEsbI=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "test",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-09-13T08:45:28Z",
+    "avatar": "",
+    "coins": 0,
+    "xp": 0,
+    "level": 1,
+    "vip_until": null,
+    "groups": [],
+    "user_permissions": [],
+    "badges": []
+  }
+},
+{
+  "model": "comics.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$4MHajFJnhcJTYnZ0klOmsK$tRZAEq3okOT3ibPNZV4EV6Boj9EJ+uW4VS9DsDB8qgY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "test2",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-09-20T03:11:27.145Z",
+    "avatar": "",
+    "coins": 0,
+    "xp": 0,
+    "level": 1,
+    "vip_until": null,
+    "groups": [],
+    "user_permissions": [],
+    "badges": []
+  }
+},
+{
+  "model": "comics.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$BHxbsYpVy15iyzlD3jNCqs$xbq1leyxGPkPxrVoozgVGAAQyqOja37dDWCA33dCu9E=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "test123",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-09-20T07:29:00.660Z",
+    "avatar": "",
+    "coins": 0,
+    "xp": 0,
+    "level": 1,
+    "vip_until": null,
+    "groups": [],
+    "user_permissions": [],
+    "badges": []
+  }
+},
+{
+  "model": "comics.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$6kB8sSL2EJNzg9TuEUoFNZ$NcyYqH4FR+jy4sxG/UYos5kn4Cv2Hdtwx3yGyDpVmB4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "test1234",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-09-20T07:51:13.394Z",
+    "avatar": "",
+    "coins": 0,
+    "xp": 0,
+    "level": 1,
+    "vip_until": null,
+    "groups": [],
+    "user_permissions": [],
+    "badges": []
+  }
+},
+{
+  "model": "comics.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$9ivG0l2zsUskZST4KLxNLR$hkQtkO1Hw2u1HXC8MO/wdDYAdUc49qo3tJZy4nYblow=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "test12345",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-09-20T07:52:32.502Z",
+    "avatar": "",
+    "coins": 0,
+    "xp": 0,
+    "level": 1,
+    "vip_until": null,
+    "groups": [],
+    "user_permissions": [],
+    "badges": []
+  }
+},
+{
+  "model": "comics.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$QOCnYIpDtYvCJIsbsxdzS7$SqSXD1gAnfhET8gVcwSR0zv0WKfJTVqO/n0OPdg9RIM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "test123456",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-09-20T08:03:57.401Z",
+    "avatar": "",
+    "coins": 0,
+    "xp": 0,
+    "level": 1,
+    "vip_until": null,
+    "groups": [],
+    "user_permissions": [],
+    "badges": []
+  }
+},
+{
+  "model": "comics.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$94JWfC8NIRq2oI5jbLqGwo$g1g1b/R6FxwgwmGw9iyR/oyaQT3RYcGhvexx5bQpMGs=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "test1234567",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-09-20T08:12:09.886Z",
+    "avatar": "",
+    "coins": 0,
+    "xp": 0,
+    "level": 1,
+    "vip_until": null,
+    "groups": [],
+    "user_permissions": [],
+    "badges": []
+  }
+},
+{
+  "model": "comics.user",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$BUoBI9DGMy1CAlLFkCmuFD$LtcD4gagmO1dkS93icVZU51HDIIgX23VLrUVpNVq1TM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "test5001",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-09-20T08:16:02.870Z",
+    "avatar": "",
+    "coins": 0,
+    "xp": 0,
+    "level": 1,
+    "vip_until": null,
+    "groups": [],
+    "user_permissions": [],
+    "badges": []
+  }
+},
+{
+  "model": "comics.user",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$mzjQLWfdQxYZ7Ts4LDET4J$fDv9q2cQiNJBVIBMK7V1GUbfaHfhGn6iqbNVc6VNo60=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "test201",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-09-20T08:16:53.405Z",
+    "avatar": "",
+    "coins": 0,
+    "xp": 0,
+    "level": 1,
+    "vip_until": null,
+    "groups": [],
+    "user_permissions": [],
+    "badges": []
+  }
+},
+{
+  "model": "comics.user",
+  "pk": 13,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$CNrXgYw5R5piFBr8SAsc8y$ti8HDBRCgEWjsSw6pcwGygxIhF1OEGZH6vKevixmqVc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "test202",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-09-20T08:17:16.428Z",
+    "avatar": "",
+    "coins": 0,
+    "xp": 0,
+    "level": 1,
+    "vip_until": null,
+    "groups": [],
+    "user_permissions": [],
+    "badges": []
+  }
+},
+{
+  "model": "comics.user",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$hkVCg7yFQW0Ka4CKVXa5Y8$IXKacNQuT0mWRNRL+5i4QhmGxu6x2UEzqF/U2XFTrqk=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "nikhilkumarsingh004@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T08:24:19.198Z",
+    "avatar": "",
+    "coins": 0,
+    "xp": 0,
+    "level": 1,
+    "vip_until": null,
+    "groups": [],
+    "user_permissions": [],
+    "badges": []
+  }
+},
+{
+  "model": "comics.user",
+  "pk": 15,
+  "fields": {
+    "password": "!qvNRhuUP7dYD5pSNFimYTfNx6iJAnEBcxB0PYYVN",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "nikhilkumarsingh004_10409",
+    "first_name": "Nikhil kumar",
+    "last_name": "singh",
+    "email": "nikhilkumarsingh004@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-24T03:46:32.228Z",
+    "avatar": "https://lh3.googleusercontent.com/a/ACg8ocL-Wm93Izejwc17SIbrfrcE0lpvvBj0-_NjQPfx1dCaXG1lNQ=s96-c",
+    "coins": 0,
+    "xp": 0,
+    "level": 1,
+    "vip_until": null,
+    "groups": [],
+    "user_permissions": [],
+    "badges": []
+  }
+},
+{
+  "model": "comics.category",
+  "pk": 1,
+  "fields": {
+    "created_date": "2026-05-01T07:32:07.083Z",
+    "updated_date": "2026-05-01T07:32:07.109Z",
+    "active": true,
+    "name": "Manga"
+  }
+},
+{
+  "model": "comics.category",
+  "pk": 2,
+  "fields": {
+    "created_date": "2026-05-01T07:32:07.083Z",
+    "updated_date": "2026-05-01T07:32:07.109Z",
+    "active": true,
+    "name": "Action"
+  }
+},
+{
+  "model": "comics.category",
+  "pk": 3,
+  "fields": {
+    "created_date": "2026-05-01T07:32:07.083Z",
+    "updated_date": "2026-05-01T07:32:07.109Z",
+    "active": true,
+    "name": "Adventure"
+  }
+},
+{
+  "model": "comics.category",
+  "pk": 4,
+  "fields": {
+    "created_date": "2026-05-01T07:32:07.083Z",
+    "updated_date": "2026-05-01T07:32:07.109Z",
+    "active": true,
+    "name": "Manhwa"
+  }
+},
+{
+  "model": "comics.category",
+  "pk": 5,
+  "fields": {
+    "created_date": "2026-05-01T07:32:07.083Z",
+    "updated_date": "2026-05-01T07:32:07.109Z",
+    "active": true,
+    "name": "Manhua"
+  }
+},
+{
+  "model": "comics.comic",
+  "pk": 1,
+  "fields": {
+    "created_date": "2022-08-15T10:18:33.370Z",
+    "updated_date": "2026-05-01T10:18:47.305Z",
+    "active": true,
+    "title": "A Returner’s Magic Should Be Special",
+    "description": "",
+    "slug": "a-returners-magic-should-be-special",
+    "thumbnail": "comics/a-returners-magic-should-be-special/thumbnail/returners_magic_ib2jmw",
+    "author": "None",
+    "posted_by": 1,
+    "categories": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "comics.comic",
+  "pk": 2,
+  "fields": {
+    "created_date": "2022-08-15T10:19:54.241Z",
+    "updated_date": "2026-05-01T10:18:45.998Z",
+    "active": true,
+    "title": "Goblin Slayer Side Story Year One",
+    "description": "",
+    "slug": "goblin-slayer-side-story-year-one",
+    "thumbnail": "comics/goblin-slayer-side-story-year-one/thumbnail/goblin_slayer_ebfxoo",
+    "author": "None",
+    "posted_by": 1,
+    "categories": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "comics.comic",
+  "pk": 3,
+  "fields": {
+    "created_date": "2022-08-15T10:20:58.377Z",
+    "updated_date": "2026-05-01T10:18:44.989Z",
+    "active": true,
+    "title": "kill the hero",
+    "description": "",
+    "slug": "kill-the-hero",
+    "thumbnail": "comics/kill-the-hero/thumbnail/kill_the_hero_jeikiv",
+    "author": "None",
+    "posted_by": 1,
+    "categories": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "comics.comic",
+  "pk": 4,
+  "fields": {
+    "created_date": "2022-08-15T10:21:28.598Z",
+    "updated_date": "2026-05-01T10:18:43.442Z",
+    "active": true,
+    "title": "magic emperor",
+    "description": "",
+    "slug": "magic-emperor",
+    "thumbnail": "comics/magic-emperor/thumbnail/magic_emperor_exjzqu",
+    "author": "None",
+    "posted_by": 1,
+    "categories": [
+      2,
+      5
+    ]
+  }
+},
+{
+  "model": "comics.comic",
+  "pk": 5,
+  "fields": {
+    "created_date": "2026-05-02T04:20:02.253Z",
+    "updated_date": "2026-05-02T04:20:02.253Z",
+    "active": true,
+    "title": "Solo Leveling",
+    "description": "In a world where hunters must battle deadly monsters to protect humanity, Sung Jin-Woo, a low-ranking hunter, gains a mysterious system that allows him to level up without limits.",
+    "slug": "solo-leveling",
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777695603/comics/mtm2w22g1iudpl8tjspr.jpg",
+    "author": "None",
+    "posted_by": null,
+    "categories": [
+      2,
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "comics.comic",
+  "pk": 6,
+  "fields": {
+    "created_date": "2026-05-02T04:20:03.950Z",
+    "updated_date": "2026-05-02T04:20:03.950Z",
+    "active": true,
+    "title": "Tower of God",
+    "description": "Reach the top, and everything will be yours. At the top of the tower exists everything in this world, and all of it can be yours. You can become a god.",
+    "slug": "tower-of-god",
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777695605/comics/gzv87llgjguxwiaein8p.jpg",
+    "author": "None",
+    "posted_by": null,
+    "categories": [
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "comics.comic",
+  "pk": 7,
+  "fields": {
+    "created_date": "2026-05-02T04:20:05.476Z",
+    "updated_date": "2026-05-02T04:20:05.476Z",
+    "active": true,
+    "title": "One Piece",
+    "description": "Monkey D. Luffy refuses to let anyone or anything stand in the way of his quest to become the king of all pirates. With a course charted for the treacherous waters of the Grand Line and beyond, this is one captain who will never give up until he's claimed the greatest treasure on Earth—the Legendary One Piece!",
+    "slug": "one-piece",
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777695606/comics/wqg5slgab24mmvmkq8pw.jpg",
+    "author": "None",
+    "posted_by": null,
+    "categories": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "comics.comic",
+  "pk": 8,
+  "fields": {
+    "created_date": "2026-05-02T04:20:06.901Z",
+    "updated_date": "2026-05-02T04:20:06.901Z",
+    "active": true,
+    "title": "The King's Avatar",
+    "description": "In the online game Glory, Ye Xiu is regarded as a textbook and a top-tier pro-player. However, due to a series of circumstances, he was forcibly expelled from his professional team. After leaving the pro scene, he finds work as an Internet Cafe manager. When Glory launches its tenth server, he throws himself into the game once more.",
+    "slug": "the-kings-avatar",
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777695608/comics/fk0odbgo0meuklid9zgy.jpg",
+    "author": "None",
+    "posted_by": null,
+    "categories": [
+      2,
+      5
+    ]
+  }
+},
+{
+  "model": "comics.comic",
+  "pk": 9,
+  "fields": {
+    "created_date": "2026-05-02T04:20:09.306Z",
+    "updated_date": "2026-05-02T04:20:09.306Z",
+    "active": true,
+    "title": "Naruto",
+    "description": "Naruto Uzumaki is a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+    "slug": "naruto",
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777695610/comics/uherfxu1i0siwxva9oay.jpg",
+    "author": "None",
+    "posted_by": null,
+    "categories": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "comics.comic",
+  "pk": 10,
+  "fields": {
+    "created_date": "2026-05-02T04:42:31.964Z",
+    "updated_date": "2026-05-02T04:42:31.964Z",
+    "active": true,
+    "title": "Omniscient Reader's Viewpoint",
+    "description": "Dokja was an average office worker whose sole interest was reading his favorite web novel 'Three Ways to Survive the Apocalypse.' But when the novel suddenly becomes reality, he is the only person who knows how the world will end.",
+    "slug": "omniscient-readers-viewpoint",
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777696953/comics/nyjktwezciocteemjzhe.jpg",
+    "author": "None",
+    "posted_by": null,
+    "categories": [
+      2,
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "comics.comic",
+  "pk": 11,
+  "fields": {
+    "created_date": "2026-05-02T04:42:33.407Z",
+    "updated_date": "2026-05-02T04:42:33.407Z",
+    "active": true,
+    "title": "The Beginning After The End",
+    "description": "King Grey has unrivaled strength, wealth, and prestige in a world governed by martial ability. However, solitude lingers closely behind those with great power. Reincarnated into a new world filled with magic and monsters, the king has a second chance to relive his life.",
+    "slug": "the-beginning-after-the-end",
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777696955/comics/xmwecjnz2hror8p63ydq.jpg",
+    "author": "None",
+    "posted_by": null,
+    "categories": [
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "comics.comic",
+  "pk": 12,
+  "fields": {
+    "created_date": "2026-05-02T04:42:34.676Z",
+    "updated_date": "2026-05-02T04:42:34.676Z",
+    "active": true,
+    "title": "Martial Peak",
+    "description": "The journey to the martial peak is a lonely, solitary and long one. In the face of adversity, you must survive and remain unyielding. Yang Kai, an ordinary disciple of the High Heaven Pavilion, obtains a black book, setting him on the path to the pinnacle of the martial world.",
+    "slug": "martial-peak",
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777696956/comics/r9ioxyucf0dzyqsf28zb.jpg",
+    "author": "None",
+    "posted_by": null,
+    "categories": [
+      2,
+      5
+    ]
+  }
+},
+{
+  "model": "comics.comic",
+  "pk": 13,
+  "fields": {
+    "created_date": "2026-05-02T04:42:35.993Z",
+    "updated_date": "2026-05-02T04:42:35.993Z",
+    "active": true,
+    "title": "Tales of Demons and Gods",
+    "description": "Nie Li, the strongest Demon Spiritist in his past life, stood at the pinnacle of the martial world. However, he lost his life during the battle with the Sage Emperor and the six deity-ranked beasts. His soul was then reborn back in time to when he was 13 years old.",
+    "slug": "tales-of-demons-and-gods",
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777696957/comics/dwllyqaix6at3u56nohv.jpg",
+    "author": "None",
+    "posted_by": null,
+    "categories": [
+      2,
+      3,
+      5
+    ]
+  }
+},
+{
+  "model": "comics.comic",
+  "pk": 14,
+  "fields": {
+    "created_date": "2026-05-02T04:42:37.306Z",
+    "updated_date": "2026-05-02T04:42:37.306Z",
+    "active": true,
+    "title": "Berserk",
+    "description": "Guts, a former mercenary now known as the 'Black Swordsman,' is out for revenge. After a tumultuous childhood, he finally finds someone he respects and believes he can trust, only to have everything fall apart when this person takes away everything important to Guts for the purpose of fulfilling his own desires.",
+    "slug": "berserk",
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777696958/comics/iejrmvzzdmki11jzuuwf.jpg",
+    "author": "None",
+    "posted_by": null,
+    "categories": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "comics.comic",
+  "pk": 15,
+  "fields": {
+    "created_date": "2026-05-02T04:42:38.762Z",
+    "updated_date": "2026-05-02T04:42:38.762Z",
+    "active": true,
+    "title": "Jujutsu Kaisen",
+    "description": "Yuji Itadori is a boy with tremendous physical strength, though he lives a completely ordinary high school life. One day, to save a classmate who has been attacked by curses, he eats the finger of Ryomen Sukuna, taking the curse into his own soul.",
+    "slug": "jujutsu-kaisen",
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777696960/comics/cru0aewnur2mxdgakiba.jpg",
+    "author": "None",
+    "posted_by": null,
+    "categories": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 1,
+  "fields": {
+    "created_date": "2022-08-15T10:18:36.200Z",
+    "updated_date": "2022-08-15T10:18:36.200Z",
+    "active": true,
+    "title": "None",
+    "chapter_num": 1,
+    "slug": "chapter-1",
+    "price": 0,
+    "comic": 1
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 2,
+  "fields": {
+    "created_date": "2022-08-15T10:19:55.004Z",
+    "updated_date": "2022-08-15T10:19:55.004Z",
+    "active": true,
+    "title": "None",
+    "chapter_num": 62,
+    "slug": "chapter-62",
+    "price": 0,
+    "comic": 2
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 3,
+  "fields": {
+    "created_date": "2022-08-15T10:20:59.022Z",
+    "updated_date": "2022-08-15T10:20:59.023Z",
+    "active": true,
+    "title": "None",
+    "chapter_num": 1,
+    "slug": "chapter-1",
+    "price": 0,
+    "comic": 3
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 4,
+  "fields": {
+    "created_date": "2022-08-15T10:21:29.245Z",
+    "updated_date": "2022-08-15T10:21:29.245Z",
+    "active": true,
+    "title": "None",
+    "chapter_num": 1,
+    "slug": "chapter-1",
+    "price": 0,
+    "comic": 4
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 5,
+  "fields": {
+    "created_date": "2026-05-02T04:20:02.296Z",
+    "updated_date": "2026-05-02T04:20:02.297Z",
+    "active": true,
+    "title": "Chapter 1",
+    "chapter_num": 1,
+    "slug": "chapter-1",
+    "price": 0,
+    "comic": 5
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 6,
+  "fields": {
+    "created_date": "2026-05-02T04:20:02.300Z",
+    "updated_date": "2026-05-02T04:20:02.300Z",
+    "active": true,
+    "title": "Chapter 2",
+    "chapter_num": 2,
+    "slug": "chapter-2",
+    "price": 0,
+    "comic": 5
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 7,
+  "fields": {
+    "created_date": "2026-05-02T04:20:02.302Z",
+    "updated_date": "2026-05-02T04:20:02.302Z",
+    "active": true,
+    "title": "Chapter 3",
+    "chapter_num": 3,
+    "slug": "chapter-3",
+    "price": 0,
+    "comic": 5
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 8,
+  "fields": {
+    "created_date": "2026-05-02T04:20:03.962Z",
+    "updated_date": "2026-05-02T04:20:03.962Z",
+    "active": true,
+    "title": "Chapter 1",
+    "chapter_num": 1,
+    "slug": "chapter-1",
+    "price": 0,
+    "comic": 6
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 9,
+  "fields": {
+    "created_date": "2026-05-02T04:20:03.965Z",
+    "updated_date": "2026-05-02T04:20:03.965Z",
+    "active": true,
+    "title": "Chapter 2",
+    "chapter_num": 2,
+    "slug": "chapter-2",
+    "price": 0,
+    "comic": 6
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 10,
+  "fields": {
+    "created_date": "2026-05-02T04:20:03.967Z",
+    "updated_date": "2026-05-02T04:20:03.968Z",
+    "active": true,
+    "title": "Chapter 3",
+    "chapter_num": 3,
+    "slug": "chapter-3",
+    "price": 0,
+    "comic": 6
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 11,
+  "fields": {
+    "created_date": "2026-05-02T04:20:05.490Z",
+    "updated_date": "2026-05-02T04:20:05.490Z",
+    "active": true,
+    "title": "Chapter 1",
+    "chapter_num": 1,
+    "slug": "chapter-1",
+    "price": 0,
+    "comic": 7
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 12,
+  "fields": {
+    "created_date": "2026-05-02T04:20:05.493Z",
+    "updated_date": "2026-05-02T04:20:05.493Z",
+    "active": true,
+    "title": "Chapter 2",
+    "chapter_num": 2,
+    "slug": "chapter-2",
+    "price": 0,
+    "comic": 7
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 13,
+  "fields": {
+    "created_date": "2026-05-02T04:20:05.496Z",
+    "updated_date": "2026-05-02T04:20:05.496Z",
+    "active": true,
+    "title": "Chapter 3",
+    "chapter_num": 3,
+    "slug": "chapter-3",
+    "price": 0,
+    "comic": 7
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 14,
+  "fields": {
+    "created_date": "2026-05-02T04:20:06.912Z",
+    "updated_date": "2026-05-02T04:20:06.912Z",
+    "active": true,
+    "title": "Chapter 1",
+    "chapter_num": 1,
+    "slug": "chapter-1",
+    "price": 0,
+    "comic": 8
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 15,
+  "fields": {
+    "created_date": "2026-05-02T04:20:06.915Z",
+    "updated_date": "2026-05-02T04:20:06.915Z",
+    "active": true,
+    "title": "Chapter 2",
+    "chapter_num": 2,
+    "slug": "chapter-2",
+    "price": 0,
+    "comic": 8
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 16,
+  "fields": {
+    "created_date": "2026-05-02T04:20:06.918Z",
+    "updated_date": "2026-05-02T04:20:06.918Z",
+    "active": true,
+    "title": "Chapter 3",
+    "chapter_num": 3,
+    "slug": "chapter-3",
+    "price": 0,
+    "comic": 8
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 17,
+  "fields": {
+    "created_date": "2026-05-02T04:20:09.317Z",
+    "updated_date": "2026-05-02T04:20:09.317Z",
+    "active": true,
+    "title": "Chapter 1",
+    "chapter_num": 1,
+    "slug": "chapter-1",
+    "price": 0,
+    "comic": 9
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 18,
+  "fields": {
+    "created_date": "2026-05-02T04:20:09.320Z",
+    "updated_date": "2026-05-02T04:20:09.320Z",
+    "active": true,
+    "title": "Chapter 2",
+    "chapter_num": 2,
+    "slug": "chapter-2",
+    "price": 0,
+    "comic": 9
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 19,
+  "fields": {
+    "created_date": "2026-05-02T04:20:09.323Z",
+    "updated_date": "2026-05-02T04:20:09.323Z",
+    "active": true,
+    "title": "Chapter 3",
+    "chapter_num": 3,
+    "slug": "chapter-3",
+    "price": 0,
+    "comic": 9
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 20,
+  "fields": {
+    "created_date": "2026-05-02T04:42:31.999Z",
+    "updated_date": "2026-05-02T04:42:31.999Z",
+    "active": true,
+    "title": "Chapter 1",
+    "chapter_num": 1,
+    "slug": "chapter-1",
+    "price": 0,
+    "comic": 10
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 21,
+  "fields": {
+    "created_date": "2026-05-02T04:42:32.004Z",
+    "updated_date": "2026-05-02T04:42:32.004Z",
+    "active": true,
+    "title": "Chapter 2",
+    "chapter_num": 2,
+    "slug": "chapter-2",
+    "price": 0,
+    "comic": 10
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 22,
+  "fields": {
+    "created_date": "2026-05-02T04:42:32.009Z",
+    "updated_date": "2026-05-02T04:42:32.009Z",
+    "active": true,
+    "title": "Chapter 3",
+    "chapter_num": 3,
+    "slug": "chapter-3",
+    "price": 0,
+    "comic": 10
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 23,
+  "fields": {
+    "created_date": "2026-05-02T04:42:33.428Z",
+    "updated_date": "2026-05-02T04:42:33.428Z",
+    "active": true,
+    "title": "Chapter 1",
+    "chapter_num": 1,
+    "slug": "chapter-1",
+    "price": 0,
+    "comic": 11
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 24,
+  "fields": {
+    "created_date": "2026-05-02T04:42:33.432Z",
+    "updated_date": "2026-05-02T04:42:33.433Z",
+    "active": true,
+    "title": "Chapter 2",
+    "chapter_num": 2,
+    "slug": "chapter-2",
+    "price": 0,
+    "comic": 11
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 25,
+  "fields": {
+    "created_date": "2026-05-02T04:42:33.437Z",
+    "updated_date": "2026-05-02T04:42:33.437Z",
+    "active": true,
+    "title": "Chapter 3",
+    "chapter_num": 3,
+    "slug": "chapter-3",
+    "price": 0,
+    "comic": 11
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 26,
+  "fields": {
+    "created_date": "2026-05-02T04:42:34.694Z",
+    "updated_date": "2026-05-02T04:42:34.694Z",
+    "active": true,
+    "title": "Chapter 1",
+    "chapter_num": 1,
+    "slug": "chapter-1",
+    "price": 0,
+    "comic": 12
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 27,
+  "fields": {
+    "created_date": "2026-05-02T04:42:34.697Z",
+    "updated_date": "2026-05-02T04:42:34.697Z",
+    "active": true,
+    "title": "Chapter 2",
+    "chapter_num": 2,
+    "slug": "chapter-2",
+    "price": 0,
+    "comic": 12
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 28,
+  "fields": {
+    "created_date": "2026-05-02T04:42:34.702Z",
+    "updated_date": "2026-05-02T04:42:34.702Z",
+    "active": true,
+    "title": "Chapter 3",
+    "chapter_num": 3,
+    "slug": "chapter-3",
+    "price": 0,
+    "comic": 12
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 29,
+  "fields": {
+    "created_date": "2026-05-02T04:42:36.015Z",
+    "updated_date": "2026-05-02T04:42:36.016Z",
+    "active": true,
+    "title": "Chapter 1",
+    "chapter_num": 1,
+    "slug": "chapter-1",
+    "price": 0,
+    "comic": 13
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 30,
+  "fields": {
+    "created_date": "2026-05-02T04:42:36.020Z",
+    "updated_date": "2026-05-02T04:42:36.020Z",
+    "active": true,
+    "title": "Chapter 2",
+    "chapter_num": 2,
+    "slug": "chapter-2",
+    "price": 0,
+    "comic": 13
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 31,
+  "fields": {
+    "created_date": "2026-05-02T04:42:36.025Z",
+    "updated_date": "2026-05-02T04:42:36.025Z",
+    "active": true,
+    "title": "Chapter 3",
+    "chapter_num": 3,
+    "slug": "chapter-3",
+    "price": 0,
+    "comic": 13
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 32,
+  "fields": {
+    "created_date": "2026-05-02T04:42:37.327Z",
+    "updated_date": "2026-05-02T04:42:37.327Z",
+    "active": true,
+    "title": "Chapter 1",
+    "chapter_num": 1,
+    "slug": "chapter-1",
+    "price": 0,
+    "comic": 14
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 33,
+  "fields": {
+    "created_date": "2026-05-02T04:42:37.330Z",
+    "updated_date": "2026-05-02T04:42:37.330Z",
+    "active": true,
+    "title": "Chapter 2",
+    "chapter_num": 2,
+    "slug": "chapter-2",
+    "price": 0,
+    "comic": 14
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 34,
+  "fields": {
+    "created_date": "2026-05-02T04:42:37.334Z",
+    "updated_date": "2026-05-02T04:42:37.334Z",
+    "active": true,
+    "title": "Chapter 3",
+    "chapter_num": 3,
+    "slug": "chapter-3",
+    "price": 0,
+    "comic": 14
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 35,
+  "fields": {
+    "created_date": "2026-05-02T04:42:38.778Z",
+    "updated_date": "2026-05-02T04:42:38.778Z",
+    "active": true,
+    "title": "Chapter 1",
+    "chapter_num": 1,
+    "slug": "chapter-1",
+    "price": 0,
+    "comic": 15
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 36,
+  "fields": {
+    "created_date": "2026-05-02T04:42:38.781Z",
+    "updated_date": "2026-05-02T04:42:38.781Z",
+    "active": true,
+    "title": "Chapter 2",
+    "chapter_num": 2,
+    "slug": "chapter-2",
+    "price": 0,
+    "comic": 15
+  }
+},
+{
+  "model": "comics.chapter",
+  "pk": 37,
+  "fields": {
+    "created_date": "2026-05-02T04:42:38.785Z",
+    "updated_date": "2026-05-02T04:42:38.785Z",
+    "active": true,
+    "title": "Chapter 3",
+    "chapter_num": 3,
+    "slug": "chapter-3",
+    "price": 0,
+    "comic": 15
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 1,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 1
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 2,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 1
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 3,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 1
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 4,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 1
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 5,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 1
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 6,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 1
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 7,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 1
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 8,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 1
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 9,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 1
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 10,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 1
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 11,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 1
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 12,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 13,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 14,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 15,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 16,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 17,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 18,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 19,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 20,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 21,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 22,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 23,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 24,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 25,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 26,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 27,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 28,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 29,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 30,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 31,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 32,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 33,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 34,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 3
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 35,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 36,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 37,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 38,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 39,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 40,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 41,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 42,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 43,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 44,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 45,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 46,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 47,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 48,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 49,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 50,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 51,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 52,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 53,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 54,
+  "fields": {
+    "thumbnail": "sample_pages/sample_page_yabgpr",
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 55,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 37
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 56,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 37
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 57,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 37
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 58,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 36
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 59,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 36
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 60,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 36
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 61,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 35
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 62,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 35
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 63,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 35
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 64,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 34
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 65,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 34
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 66,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 34
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 67,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 33
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 68,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 33
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 69,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 33
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 70,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 32
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 71,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 32
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 72,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 32
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 73,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 31
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 74,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 31
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 75,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 31
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 76,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 30
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 77,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 30
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 78,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 30
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 79,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 29
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 80,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 29
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 81,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 29
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 82,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 28
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 83,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 28
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 84,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 28
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 85,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 27
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 86,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 27
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 87,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 27
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 88,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 26
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 89,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 26
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 90,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 26
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 91,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 25
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 92,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 25
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 93,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 25
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 94,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 24
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 95,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 24
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 96,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 24
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 97,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 23
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 98,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 23
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 99,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 23
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 100,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 22
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 101,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 22
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 102,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 22
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 103,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 21
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 104,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 21
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 105,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 21
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 106,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 20
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 107,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 20
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 108,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 20
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 109,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 19
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 110,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 19
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 111,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 19
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 112,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 18
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 113,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 18
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 114,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 18
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 115,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 17
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 116,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 17
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 117,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 17
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 118,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 16
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 119,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 16
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 120,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 16
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 121,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 15
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 122,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 15
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 123,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 15
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 124,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 14
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 125,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 14
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 126,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 14
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 127,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 13
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 128,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 13
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 129,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 13
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 130,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 12
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 131,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 12
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 132,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 12
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 133,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 11
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 134,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 11
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 135,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 11
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 136,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 10
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 137,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 10
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 138,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 10
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 139,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 9
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 140,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 9
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 141,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 9
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 142,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 8
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 143,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 8
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 144,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 8
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 145,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 7
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 146,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 7
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 147,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 7
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 148,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 6
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 149,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 6
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 150,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 6
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 151,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725599/comic_pages/kh1xdqrtrc7yvn6xxhjv.jpg",
+    "chapter": 5
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 152,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725600/comic_pages/xvmiunzihmprae4pnbsg.jpg",
+    "chapter": 5
+  }
+},
+{
+  "model": "comics.chapterimage",
+  "pk": 153,
+  "fields": {
+    "thumbnail": "https://res.cloudinary.com/da55yxd8x/image/upload/v1777725601/comic_pages/jojkjvslwrgfoeo2r9cq.jpg",
+    "chapter": 5
+  }
+},
+{
+  "model": "comics.chapterview",
+  "pk": 1,
+  "fields": {
+    "created_date": "2026-05-01T08:33:22.555Z",
+    "updated_date": "2026-05-01T10:20:36.033Z",
+    "views": 1,
+    "chapter": 4
+  }
+},
+{
+  "model": "comics.chapterview",
+  "pk": 2,
+  "fields": {
+    "created_date": "2026-05-01T08:33:22.563Z",
+    "updated_date": "2026-05-01T08:33:22.563Z",
+    "views": 0,
+    "chapter": 3
+  }
+},
+{
+  "model": "comics.chapterview",
+  "pk": 3,
+  "fields": {
+    "created_date": "2026-05-01T08:33:22.567Z",
+    "updated_date": "2026-05-01T08:33:22.567Z",
+    "views": 0,
+    "chapter": 2
+  }
+},
+{
+  "model": "comics.chapterview",
+  "pk": 4,
+  "fields": {
+    "created_date": "2026-05-01T08:33:22.571Z",
+    "updated_date": "2026-05-01T08:33:22.571Z",
+    "views": 0,
+    "chapter": 1
+  }
+},
+{
+  "model": "comics.chapterview",
+  "pk": 5,
+  "fields": {
+    "created_date": "2026-05-02T12:34:52.896Z",
+    "updated_date": "2026-05-02T12:41:53.514Z",
+    "views": 3,
+    "chapter": 29
+  }
+},
+{
+  "model": "comics.chapterview",
+  "pk": 6,
+  "fields": {
+    "created_date": "2026-05-02T12:49:12.470Z",
+    "updated_date": "2026-05-24T04:04:52.267Z",
+    "views": 2,
+    "chapter": 35
+  }
+},
+{
+  "model": "comics.chapterview",
+  "pk": 7,
+  "fields": {
+    "created_date": "2026-05-23T17:01:38.825Z",
+    "updated_date": "2026-05-23T17:01:38.845Z",
+    "views": 1,
+    "chapter": 20
+  }
+},
+{
+  "model": "comics.chapterview",
+  "pk": 8,
+  "fields": {
+    "created_date": "2026-05-23T17:05:20.152Z",
+    "updated_date": "2026-05-24T03:51:02.814Z",
+    "views": 6,
+    "chapter": 32
+  }
+},
+{
+  "model": "comics.chapterview",
+  "pk": 9,
+  "fields": {
+    "created_date": "2026-05-24T04:26:58.358Z",
+    "updated_date": "2026-05-24T04:26:58.364Z",
+    "views": 1,
+    "chapter": 36
+  }
+},
+{
+  "model": "comics.comment",
+  "pk": 1,
+  "fields": {
+    "content": "This is a root comment",
+    "comic": 1,
+    "creator": 1,
+    "reply_to": null,
+    "created_date": "2022-09-09T14:41:45Z",
+    "updated_date": "2022-09-09T14:41:45Z",
+    "is_spoiler": false,
+    "liked_by": [],
+    "disliked_by": []
+  }
+},
+{
+  "model": "comics.comment",
+  "pk": 2,
+  "fields": {
+    "content": "test reply to comment 1 again",
+    "comic": 4,
+    "creator": 2,
+    "reply_to": 1,
+    "created_date": "2022-09-13T09:09:56.174Z",
+    "updated_date": "2022-09-13T09:09:56.174Z",
+    "is_spoiler": false,
+    "liked_by": [],
+    "disliked_by": []
+  }
+},
+{
+  "model": "comics.bookmark",
+  "pk": 1,
+  "fields": {
+    "created_date": "2026-05-02T12:34:16.245Z",
+    "updated_date": "2026-05-02T12:34:16.246Z",
+    "comic": 13,
+    "creator": 14
+  }
+}
+]
