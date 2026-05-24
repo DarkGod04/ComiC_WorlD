@@ -52,14 +52,14 @@ A premium, full-stack comic application featuring a high-performance Next.js fro
 
 ## About The Project
 
-A full-stack webtoon, manhua, manga website, manhwa website, comics website using Next.js | React.js framework as Front-end and Django-rest framwork as Back-end that allow users to post and read comics online, utilize pre-render which dramatically increases page performance
+A full-stack webtoon, manhua, manga website, manhwa website, comics website using Next.js | React.js framework as Front-end and Django-rest-framework as Back-end that allows users to post and read comics online, utilize pre-rendering which dramatically increases page performance.
 
-- The website prioritizes performance, achieving a near-perfect Lighthouse score for page performance. 
-- Next.js pre-rendering is utilized with on-demand Incremental Static Regeneration (ISR) to optimize loading times.
-- Admins can re-create new caches whenever they add/update data on the back-end, ensuring that changes are immediately reflected on the front-end.
-- Stripe payment integration allows for secure and streamlined payment processing. 
-
-Note: There're some issue regarding the back-end to revalidate the cache for the front-end not working properly!!
+- **High-Performance Rendering**: Next.js pre-rendering is utilized with on-demand Incremental Static Regeneration (ISR) to optimize loading times, achieving near-perfect Lighthouse scores.
+- **Dynamic Caching**: Admins can re-create new caches whenever they add/update data on the back-end, ensuring that changes are immediately reflected on the front-end.
+- **Stripe Payment Integration**: Secure and streamlined payment processing for purchasing user coins and unlocking premium chapters.
+- **Google OAuth Login**: Fully authorized logins using Google OAuth credentials.
+- **Cohesive Viewer Themes**: Unified, premium reader backgrounds, custom scrollbars, dropdowns, and comment sections matching **Dark, Light, and Sepia** viewer themes.
+- **Smooth Auto Scroll**: Frame-rate independent auto-scrolling loop using `requestAnimationFrame` and time-delta physics.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -70,24 +70,28 @@ Note: There're some issue regarding the back-end to revalidate the cache for the
 ### Prerequisites
 
 - Python >=3.9
+- Node.js >=14.x
 
 ### Technologies
 
 - Back-end Rest Apis using Django-rest-framework
-- Front-end using Nextjs framework
+- Front-end using Nextjs framework with Tailwind CSS
 
 ### Functionality
 
-- [X] Login, logout, signup
+- [x] Login, logout, signup
+- [x] Google OAuth Login Integration
 - [x] Comic Views
-- [x] Comment, reply
-- [x] Bookmark
+- [x] Webtoon & Manga (Paged) reader layouts
+- [x] Cohesive Viewer Themes (Dark, Light, Sepia)
+- [x] Smooth Auto Scroll (requestAnimationFrame render loop)
+- [x] User Comment, nested reply, and spoiler controls
+- [x] User bookmarking & rating
+- [x] Stripe Wallet Checkout
+- [x] Update User Profile
+- [x] Chapter Coin Unlocking
 - [ ] Local reading history
-- [x] Rate
-- [X] Payment using Stripe
-- [X] Update User Profile
 - [ ] Chapter Free timer (Free after a specific interval time, Ex: 1 week)
-- [X] Chapter Coin (Require coin for reading a chapter) 
 
 ### Installation Back-end using Scripts
 
