@@ -97,8 +97,10 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
     "https://stripe.com",
-    CLIENT_SIDE_DOMAIN
 ]
+
+if CLIENT_SIDE_DOMAIN and CLIENT_SIDE_DOMAIN != 'None' and CLIENT_SIDE_DOMAIN != 'None/':
+    CORS_ORIGIN_WHITELIST.append(CLIENT_SIDE_DOMAIN)
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
